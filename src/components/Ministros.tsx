@@ -86,7 +86,7 @@ const Ministros = () => {
               opacity: isVisible ? 1 : 0
             }}
           >
-            <h2 className="text-rvl-escuro mb-6 whitespace-normal md:whitespace-nowrap">
+            <h2 className="text-rvl-escuro mb-6 whitespace-normal md:whitespace-nowrap md:text-[2.8rem]">
               MINISTROS CONFIRMADOS
             </h2>
             <div className="font-blauer text-rvl-escuro/80 text-base md:text-lg leading-relaxed space-y-5">
