@@ -1,6 +1,4 @@
 
-import { Button } from './ui/button';
-
 const Hero = () => {
   return (
     <section id="inicio" className="hero-gradient relative h-[100dvh] min-h-[100dvh] overflow-hidden">
