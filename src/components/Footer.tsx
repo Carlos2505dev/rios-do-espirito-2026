@@ -12,26 +12,6 @@ const Footer = () => {
           <img src="/assets/selo_verbo.webp" alt="Selo Verbo" width={80} height={80} loading="lazy" className="h-8 sm:h-10 opacity-90 object-contain" />
         </div>
         <p className="font-blauer text-sm text-white mb-6">18 e 20 de Junho de 2026 — Verbo da Vida Cabula, Salvador/BA</p>
-        <div className="flex justify-center gap-6 mb-8">
-          <a
-            href="https://www.instagram.com/riosdoespirito/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-white hover:text-rvl-laranja transition-colors"
-            aria-label="Instagram"
-          >
-            <FaInstagram size={24} />
-          </a>
-          <a
-            href="https://www.youtube.com/@verbocabula"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-white hover:text-rvl-laranja transition-colors"
-            aria-label="YouTube"
-          >
-            <FaYoutube size={24} />
-          </a>
-        </div>
         <p className="font-blauer text-xs text-white/60">© {new Date().getFullYear()} Conferência Rios do Espírito | Igreja Verbo do Cabula. Todos os direitos reservados.</p>
       </div>
     </footer>

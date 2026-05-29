@@ -7,9 +7,10 @@ interface ButtonProps {
   className?: string;
   buttonClassName?: string;
   boxClassName?: string;
+  fullWidth?: boolean;
 }
 
-export const Button = ({ children, href, onClick, className = '', buttonClassName = '', boxClassName = '' }: ButtonProps) => {
+export const Button = ({ children, href, onClick, className = '', buttonClassName = '', boxClassName = '', fullWidth = true }: ButtonProps) => {
   const content = (
     <div className={`btn-cta-box ${boxClassName}`}>
       <div className={`btn-cta ${buttonClassName}`}>{children}</div>
@@ -20,8 +21,8 @@ export const Button = ({ children, href, onClick, className = '', buttonClassNam
   );
 
   return (
-    <div className={`glowbox-container ${className}`}>
-      <div className={`glowbox glowbox-active ${className}`}>
+    <div className={`glowbox-container ${className}`} style={{ width: fullWidth ? '100%' : 'fit-content' }}>
+      <div className="glowbox glowbox-active">
         <div className="glowbox-animations">
           <div className="glowbox-glow"></div>
           <div className="glowbox-stars-masker">
@@ -34,11 +35,11 @@ export const Button = ({ children, href, onClick, className = '', buttonClassNam
         </div>
 
         {href ? (
-          <a href={href} className="block w-full h-full" target={href.startsWith('http') ? '_blank' : undefined} rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}>
+          <a href={href} className={`block h-full ${fullWidth ? 'w-full' : ''}`} target={href.startsWith('http') ? '_blank' : undefined} rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}>
             {content}
           </a>
         ) : (
-          <button onClick={onClick} className="block w-full h-full bg-transparent border-none p-0 cursor-pointer">
+          <button onClick={onClick} className={`block h-full bg-transparent border-none p-0 cursor-pointer ${fullWidth ? 'w-full' : ''}`}>
             {content}
           </button>
         )}

@@ -1,5 +1,7 @@
 @import "tailwindcss";
+@import "./styles/global-custom.css";
 
+/* Define our theme variables and utilities AFTER global-custom to ensure precedence */
 @theme {
   --font-aeonik: "Aeonik", sans-serif;
   --font-blauer: "Blauer Neue", sans-serif;
@@ -22,6 +24,11 @@
   --breakpoint-xl: 1280px;
   --breakpoint-2xl: 1536px;
 }
+
+/* Font utility classes */
+.font-aeonik { font-family: var(--font-aeonik); }
+.font-blauer { font-family: var(--font-blauer); }
+.font-quentin { font-family: var(--font-quentin); }
 
 @font-face {
   font-family: 'Aeonik';
@@ -86,7 +93,7 @@
   }
 
   body {
-    @apply bg-[#1a1a1a] text-rvl-escuro;
+    @apply bg-[#F5F9FF] text-rvl-escuro;
     font-family: "Blauer Neue", sans-serif;
   }
 
@@ -192,17 +199,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 999px !important;
 }
 
 .glowbox {
   isolation: isolate;
   overflow: hidden;
-  border-radius: 999px;
+  border-radius: 999px !important;
   position: relative;
   width: 100%;
   max-width: 423px;
   margin: auto;
   --animation-speed: 2s;
+  background: transparent !important;
+  border: none !important;
 }
 
 .glowbox-active .glowbox-animations,
@@ -679,4 +691,67 @@
   animation: fire-flicker 0.5s ease-in-out infinite;
   color: #f27f22 !important;
   font-weight: 800 !important;
+}
+
+/* ==============================
+   SPECIFIC STYLES FOR SECTIONS
+   ============================== */
+
+/* --- Fotos Section --- */
+#fotos {
+  background-color: var(--color-rvl-creme-bg) !important;
+  padding-top: 5rem !important; /* py-20 */
+  padding-bottom: 7rem !important; /* md:py-28 */
+  padding-left: 1.5rem !important; /* px-6 */
+  padding-right: 1.5rem !important; /* px-6 */
+}
+
+#fotos h2 {
+  color: var(--color-rvl-escuro) !important;
+  font-size: clamp(1.5rem, 5vw, 3rem) !important;
+}
+
+#fotos p {
+  font-family: var(--font-blauer) !important;
+}
+
+/* --- Ministrações Section --- */
+#ministracoes {
+  background-color: var(--color-rvl-escuro) !important;
+  padding-top: 5rem !important;
+  padding-bottom: 7rem !important;
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+  color: var(--color-rvl-creme) !important;
+}
+
+#ministracoes h2 {
+  color: var(--color-rvl-creme) !important;
+  font-size: clamp(1.5rem, 5vw, 3rem) !important;
+}
+
+#ministracoes .article-card {
+  background-color: hsl(40 42% 90% / 0.05) !important;
+  border-radius: 1rem !important;
+  padding: 1.5rem !important;
+  border: 1px solid hsl(40 42% 90% / 0.1) !important;
+}
+
+#ministracoes .article-card:hover {
+  border-color: hsl(16 79% 54% / 0.5) !important;
+}
+
+#ministracoes .cta-card {
+  background-color: hsl(40 42% 90% / 0.05) !important;
+  border-radius: 1.5rem !important;
+  padding: 2rem !important;
+  border: 1px solid hsl(16 79% 54% / 0.2) !important;
+}
+
+/* --- Button Styles (Glowbox) --- */
+.glowbox-container,
+.glowbox,
+.btn-cta-box,
+.btn-cta {
+  box-sizing: border-box !important;
 }
