@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Landing Page - Conferência Rios do Espírito 🌊
 
 > **Uma landing page moderna, responsiva e de alta conversão para a conferência Rios do Espírito. Projetada para informar, engajar e converter visitantes em participantes.**
@@ -307,3 +308,6 @@ Desenvolvido com **dedicação, oração e muito café** por:
 
 > "Uma plataforma digital que transforma visitantes em participantes da Conferência Rios do Espírito." 🌊✨
 
+=======
+# rios-do-espirito-2026
+>>>>>>> 7aad7ad18a4ac46c4ebbfd0a94ea56857c7939a4
