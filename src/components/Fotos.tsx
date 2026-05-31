@@ -1,4 +1,4 @@
-import { Images, ExternalLink } from 'lucide-react';
+import { Images } from 'lucide-react';
 import { Button } from './ui/button';
 
 const Fotos = () => {
