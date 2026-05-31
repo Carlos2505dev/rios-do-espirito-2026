@@ -82,7 +82,8 @@ const Ministracoes = () => {
                         href="#"
                         className="shadow-[0_4px_24px_rgba(245,130,58,0.35)]"
                         boxClassName="!p-1"
-                        buttonClassName="!py-2 !px-6 !text-xs !font-bold uppercase tracking-wide"
+                        buttonClassName="!py-2 !px-4 !text-xs !font-bold uppercase tracking-wide"
+                        fullWidth={false}
                       >
                         Assistir Ministração
                       </Button>

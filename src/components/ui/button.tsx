@@ -14,7 +14,7 @@ export const Button = ({ children, href, onClick, className = '', buttonClassNam
   const content = (
     <div className={`btn-cta-box ${boxClassName}`}>
       <div className={`btn-cta ${buttonClassName}`}>{children}</div>
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="arrow-icon flex-shrink-0">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="arrow-icon flex-shrink-0" style={{ marginLeft: '-6px' }}>
         <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     </div>
