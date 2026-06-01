@@ -68,9 +68,9 @@ const Hero: React.FC = () => {
       ref={homeLeadRef}
       className="homeLead"
       style={{
-        ['--_bg-border-radius' as string]: '1rem',
+        ['--_bg-border-radius' as string]: typeof window !== 'undefined' && window.innerWidth > 640 ? '1.125rem' : '1.8rem',
         ['--_bg-top' as string]: typeof window !== 'undefined' && window.innerWidth > 640 ? '6.5rem' : '5.1rem',
-        ['--_bg-inline-spacing' as string]: typeof window !== 'undefined' && window.innerWidth > 640 ? '2rem' : '1.5rem',
+        ['--_bg-inline-spacing' as string]: typeof window !== 'undefined' && window.innerWidth > 640 ? '2rem' : '1.8rem',
         ['--_bg-y' as string]: '0rem',
       }}
     >
@@ -78,6 +78,7 @@ const Hero: React.FC = () => {
         <img
           src="/assets/lead-bg.jpg"
           alt=""
+          fetchPriority="high"
         />
       </div>
 
@@ -120,7 +121,7 @@ const Hero: React.FC = () => {
       <section className="homeMission font-blauer">
         <div className="homeMission-body">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing eli
+            Tudo o que vivemos juntos ainda está fluindo. Preparamos este espaço exclusivo para que você possa reviver os melhores momentos da nossa conferência e continuar sendo edificado pelo que recebemos.
           </p>
         </div>
       </section>

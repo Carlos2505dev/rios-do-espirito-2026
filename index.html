@@ -3,8 +3,14 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/assets/simbolo-branco.svg" />
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Preload LCP image -->
+  <link rel="preload" as="image" href="/assets/lead-bg.jpg" />
+
+  <!-- Preload web fonts to reduce CLS -->
+  <link rel="preload" as="font" href="/fonts/Quentin.otf" type="font/otf" crossorigin />
 
   <!-- Preconnect to external domains to reduce latency -->
   <link rel="preconnect" href="https://basemaps.cartocdn.com" />

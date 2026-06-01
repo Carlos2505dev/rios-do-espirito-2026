@@ -6,37 +6,32 @@ const Ministracoes = () => {
   const ministracoes = [
     {
       title: "O Fluir do Espírito",
-      speaker: "Pr. Emerson",
-      description: "Uma mensagem profunda sobre como permitir que o Espírito Santo guie cada passo.",
-      photo: "/assets/Ministros/emerson.jpg",
+      speaker: "Pr. Emerson Miranda",
+      photo: "/assets/Ministros/emerson.webp",
       photoPosition: "center 40%"
     },
     {
       title: "Rios de Cura",
-      speaker: "Pra. Vânia",
-      description: "Testemunhos e palavras de restauração física e emocional.",
-      photo: "/assets/Ministros/vania.jpg",
+      speaker: "Vânia Nascimento",
+      photo: "/assets/Ministros/vania.webp",
       photoPosition: "center 30%"
     },
     {
       title: "Profundidade",
-      speaker: "Pr. Davi",
-      description: "Um chamado para mergulhar mais fundo nas águas do avivamento.",
-      photo: "/assets/Ministros/davi.jpeg",
+      speaker: "Davi Silva",
+      photo: "/assets/Ministros/davi.webp",
       photoPosition: "center 15%"
     },
     {
       title: "Águas Vivas",
-      speaker: "Pra. Cynthia",
-      description: "O transbordar da glória de Deus em nossas vidas e famílias.",
-      photo: "/assets/Ministros/cynthia.jpg",
+      speaker: "Cynthia Miranda",
+      photo: "/assets/Ministros/cynthia.webp",
       photoPosition: "center 25%"
     },
     {
       title: "Fogo do Avivamento",
-      speaker: "Pr. Gian",
-      description: "Uma palavra sobre o fogo do Espírito Santo em nossas vidas.",
-      photo: "/assets/Ministros/gian.jpeg",
+      speaker: "Pr. Gian Santos",
+      photo: "/assets/Ministros/gian.webp",
       photoPosition: "center 55%"
     }
   ];
@@ -45,13 +40,28 @@ const Ministracoes = () => {
     <section id="ministracoes">
       <div className="max-w-6xl mx-auto flex flex-col items-center">
         <div className="text-center mb-16">
-          <p style={{ color: 'var(--color-rvl-laranja)', fontFamily: 'var(--font-aeonik)', fontWeight: 500, marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.05em', fontSize: '0.875rem' }}>Conteúdos</p>
+          <p style={{ color: 'var(--color-rvl-laranja)', fontFamily: 'var(--font-aeonik)', fontWeight: 500, marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.05em', fontSize: '0.875rem' }}>Ministrações</p>
           <h2 style={{ fontFamily: 'var(--font-aeonik)', fontWeight: 700, marginBottom: '1rem' }}>
-            Águas que Transformam — Ministrações
+            Águas que Transformam
           </h2>
-          <p style={{ fontFamily: 'var(--font-blauer)', color: 'hsl(40 42% 90% / 0.7)', maxWidth: '42rem', margin: '0 auto', fontSize: '1.125rem' }}>
-            Palavras que marcaram nossa conferência. Assista, ouça e compartilhe.
+          <p style={{ fontFamily: 'var(--font-blauer)', color: 'hsl(40 42% 90% / 0.7)', maxWidth: '42rem', margin: '0 auto 1.5rem', fontSize: '1.125rem' }}>
+            Palavras que marcaram a nossa conferência. <strong>Clique, assista e ouça</strong> novamente as mensagens completas.
           </p>
+          <div style={{ 
+            maxWidth: '42rem', 
+            margin: '0 auto', 
+            padding: '1rem 1.25rem', 
+            backgroundColor: 'rgba(245, 130, 58, 0.1)', 
+            border: '2px solid var(--color-rvl-laranja)',
+            borderRadius: '0.5rem',
+            fontFamily: 'var(--font-aeonik)',
+            color: 'var(--color-rvl-laranja)',
+            fontWeight: 600,
+            fontSize: '0.95rem',
+            textAlign: 'center'
+          }}>
+            ⚠️ Atenção: Estes links são de uso exclusivo dos participantes. Pedimos que não repasse ou compartilhe os vídeos externamente.
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full mb-16">
@@ -77,7 +87,6 @@ const Ministracoes = () => {
                   <div className="flip-card-back">
                     <div className="back-content">
                       <h3 style={{ fontFamily: 'var(--font-aeonik)', fontSize: '1.25rem', fontWeight: 700, marginBottom: '0.5rem', color: 'var(--color-rvl-laranja)' }}>{item.title}</h3>
-                      <p style={{ fontFamily: 'var(--font-blauer)', color: 'hsl(40 42% 90% / 0.9)', marginBottom: '1.5rem', fontSize: '0.95rem' }}>{item.description}</p>
                       <Button
                         href="#"
                         className="shadow-[0_4px_24px_rgba(245,130,58,0.35)]"
@@ -98,7 +107,7 @@ const Ministracoes = () => {
         <div className="cta-card" style={{ textAlign: 'center', width: '100%', maxWidth: '64rem', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <h3 style={{ fontFamily: 'var(--font-aeonik)', fontSize: '1.875rem', fontWeight: 700, marginBottom: '0.75rem' }}>O que Deus fez em você?</h3>
           <p style={{ fontFamily: 'var(--font-blauer)', color: 'hsl(40 42% 90% / 0.8)', marginBottom: '2rem', maxWidth: '32rem' }}>
-            Queremos ouvir o que aconteceu durante a conferência. Seu testemunho pode edificar muitas vidas.
+            Queremos ouvir como a conferência impactou a sua jornada. Compartilhe com a nossa equipe o que aconteceu com você; o seu testemunho edifica a nossa igreja.
           </p>
           <Button
             href="#"
@@ -108,7 +117,7 @@ const Ministracoes = () => {
             fullWidth={false}
           >
             <Share2 size={18} />
-            Compartilhar Testemunho
+            Enviar meu Testemunho
           </Button>
         </div>
       </div>

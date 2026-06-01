@@ -10,6 +10,11 @@ const Footer = () => {
           <img src="/assets/Logo-Verbo.webp" alt="Verbo da Vida Logo" width={180} height={64} loading="lazy" className="h-10 sm:h-16 opacity-90 object-contain" />
           <img src="/assets/selo_verbo.webp" alt="Selo Verbo" width={80} height={80} loading="lazy" className="h-8 sm:h-10 opacity-90 object-contain" />
         </div>
+        <div className="bg-white/10 border-l-4 border-orange-500 rounded-lg p-6 mb-8 backdrop-blur-sm">
+          <p className="font-blauer text-sm text-white/95 leading-relaxed">
+            <span className="font-bold text-orange-400">Acesso Exclusivo:</span> Este ambiente e os conteúdos aqui disponibilizados foram preparados especialmente para você que esteve conosco. O link desta página é pessoal e intransferível.
+          </p>
+        </div>
         <p className="font-blauer text-sm text-white mb-6">18 e 20 de Junho de 2026 — Verbo da Vida Cabula, Salvador/BA</p>
         <p className="font-blauer text-xs text-white/60">© {new Date().getFullYear()} Conferência Rios do Espírito | Igreja Verbo do Cabula. Todos os direitos reservados.</p>
       </div>

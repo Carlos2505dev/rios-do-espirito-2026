@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novo Feedback - Conferência Rios do Espírito</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #d36839 0%, #e07d52 100%);
+            padding: 30px 20px;
+            text-align: center;
+            color: white;
+        }
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        .header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        .content {
+            padding: 30px 20px;
+        }
+        .section {
+            margin-bottom: 25px;
+        }
+        .section-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #d36839;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+            border-bottom: 2px solid #d36839;
+            padding-bottom: 8px;
+        }
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .info-row:last-child {
+            border-bottom: none;
+        }
+        .info-label {
+            font-weight: 600;
+            color: #555;
+            margin-right: 10px;
+            min-width: 140px;
+        }
+        .info-value {
+            color: #333;
+            word-break: break-word;
+            flex: 1;
+            text-align: right;
+        }
+        .info-block {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-left: 4px solid #d36839;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        .info-block-title {
+            font-weight: 600;
+            color: #d36839;
+            margin-bottom: 8px;
+            font-size: 13px;
+        }
+        .info-block-content {
+            color: #555;
+            line-height: 1.5;
+            font-size: 14px;
+        }
+        .contact-info {
+            background-color: #f0f4f8;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        .contact-item {
+            font-size: 14px;
+            margin: 5px 0;
+            color: #555;
+        }
+        .contact-item strong {
+            color: #333;
+        }
+        .footer {
+            background-color: #f5f5f5;
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid #eee;
+            font-size: 12px;
+            color: #888;
+        }
+        .badge {
+            display: inline-block;
+            background-color: #d36839;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin: 2px;
+        }
+        .metadata {
+            background-color: #f9f9f9;
+            padding: 12px 15px;
+            border-radius: 6px;
+            font-size: 12px;
+            color: #888;
+            margin-top: 15px;
+        }
+        .metadata-item {
+            margin: 4px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <div class="header">
+            <h1>📋 Novo Feedback Recebido</h1>
+            <p>Conferência Rios do Espírito</p>
+        </div>
+
+        <!-- CONTENT -->
+        <div class="content">
+            <!-- INFORMAÇÕES DE CONTATO -->
+            <div class="section">
+                <div class="section-title">📧 Informações de Contato</div>
+                <div class="contact-info">
+                    <div class="contact-item"><strong>Nome:</strong> {{from_name}}</div>
+                    <div class="contact-item"><strong>Email:</strong> {{from_email}}</div>
+                    <div class="contact-item"><strong>Telefone:</strong> {{phone}}</div>
+                </div>
+            </div>
+
+            <!-- AVALIAÇÕES PRINCIPAIS -->
+            <div class="section">
+                <div class="section-title">⭐ Avaliações Principais</div>
+                <div class="info-row">
+                    <span class="info-label">Satisfação Geral:</span>
+                    <span class="info-value"><strong>{{satisfacao_geral}}</strong></span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Organização:</span>
+                    <span class="info-value"><strong>{{avaliacao_organizacao}}</strong></span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Recomendaria:</span>
+                    <span class="info-value"><strong>{{recomendaria}}</strong></span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Próximo Evento:</span>
+                    <span class="info-value"><strong>{{interesse_proximo_evento}}</strong></span>
+                </div>
+            </div>
+
+            <!-- COMENTÁRIOS DETALHADOS -->
+            <div class="section">
+                <div class="section-title">✅ Pontos Positivos</div>
+                <div class="info-block">
+                    <div class="info-block-content">{{pontos_positivos}}</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">⚠️ Pontos de Melhoria</div>
+                <div class="info-block">
+                    <div class="info-block-content">{{pontos_negativos_falta}}</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">💬 Comentários Adicionais</div>
+                <div class="info-block">
+                    <div class="info-block-content">{{comentarios_adicionais}}</div>
+                </div>
+            </div>
+
+            <!-- METADADOS -->
+            <div class="section">
+                <div class="metadata">
+                    <div class="metadata-item"><strong>ID do Lead:</strong> {{lead_id}}</div>
+                    <div class="metadata-item"><strong>Origem:</strong> {{origin_page}}</div>
+                    <div class="metadata-item"><strong>Data/Hora:</strong> {{timestamp}}</div>
+                    <div class="metadata-item"><strong>Ano:</strong> {{year}}</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <p>✉️ Conferência Rios do Espírito</p>
+            <p>Este é um email automático - não responda diretamente</p>
+        </div>
+    </div>
+</body>
+</html>

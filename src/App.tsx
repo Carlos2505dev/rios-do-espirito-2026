@@ -1,25 +1,24 @@
 import { Suspense, lazy, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Header } from './components/Header';
 import Hero from './components/Hero';
 import { CustomCursor } from './components/CustomCursor';
+import { LoadingSpinner } from './components/ui/LoadingSpinner';
 import Fotos from './components/Fotos';
 
 // Lazy loading for components below the fold
 const Ministracoes = lazy(() => import('./components/Ministracoes'));
+const Avaliacao = lazy(() => import('./components/Avaliacao'));
+const Playlist = lazy(() => import('./components/Playlist'));
 const Partners = lazy(() => import('./components/Partners'));
 const Recomendacoes = lazy(() => import('./components/Recomendacoes'));
 const Footer = lazy(() => import('./components/Footer'));
+const FeedbackPage = lazy(() => import('./pages/feedbacks'));
 
-const App = () => {
-  useEffect(() => {
-    document.body.id = 'top'
-    document.body.setAttribute('data-route', 'home')
-    document.body.setAttribute('data-area', '')
-  }, [])
-
+// Home component
+const Home = () => {
   return (
-    <div className={`ua-sp ua-safari ua-ios`}>
-      <CustomCursor />
+    <>
       <Header />
       <main className="main">
         <Hero />
@@ -29,6 +28,12 @@ const App = () => {
           </Suspense>
           <Suspense fallback={<div className="h-32" />}>
             <Ministracoes />
+          </Suspense>
+          <Suspense fallback={<div className="h-32" />}>
+            <Avaliacao />
+          </Suspense>
+          <Suspense fallback={<div className="h-32" />}>
+            <Playlist />
           </Suspense>
           <Suspense fallback={<div className="h-32" />}>
             <Partners />
@@ -41,8 +46,32 @@ const App = () => {
       <Suspense fallback={null}>
         <Footer />
       </Suspense>
-    </div>
-  )
-}
+    </>
+  );
+};
 
-export default App
+const App = () => {
+  useEffect(() => {
+    document.body.id = 'top'
+    document.body.setAttribute('data-route', 'home')
+    document.body.setAttribute('data-area', '')
+  }, [])
+
+  return (
+    <Router>
+      <div className={`ua-sp ua-safari ua-ios`}>
+        <CustomCursor />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/feedback" element={
+            <Suspense fallback={<LoadingSpinner />}>
+              <FeedbackPage />
+            </Suspense>
+          } />
+        </Routes>
+      </div>
+    </Router>
+  );
+};
+
+export default App;

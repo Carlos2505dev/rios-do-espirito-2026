@@ -3,21 +3,24 @@ import React, { useEffect, useRef } from 'react';
 export const Header: React.FC = () => {
   const headerRef = useRef<HTMLElement>(null);
   const logoRef = useRef<HTMLHeadingElement>(null);
+  const homeLeadHeightRef = useRef(0);
+  const scrollTimeoutRef = useRef<number | null>(null);
 
   useEffect(() => {
+    // Get homeLead height once on mount
+    const homeLead = document.querySelector('.homeLead') as HTMLElement;
+    if (homeLead) {
+      homeLeadHeightRef.current = homeLead.offsetHeight;
+    }
+
     const handleScroll = () => {
       const scrollY = window.scrollY || window.pageYOffset;
       const headerElement = headerRef.current;
       const logoElement = logoRef.current;
       if (!headerElement) return;
 
-      const homeLead = document.querySelector('.homeLead') as HTMLElement;
-      if (!homeLead) return;
-
-      const homeLeadRect = homeLead.getBoundingClientRect();
-      const homeLeadBottom = scrollY + homeLeadRect.bottom;
-
-      const isPastHomeLead = scrollY >= (homeLeadBottom - 50);
+      const trigger = homeLeadHeightRef.current - 50;
+      const isPastHomeLead = scrollY >= trigger;
 
       if (isPastHomeLead) {
         headerElement.style.setProperty('--_bg-color', '#F5F9FF');
@@ -42,11 +45,24 @@ export const Header: React.FC = () => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    // Throttle scroll handler
+    const throttledScroll = () => {
+      if (scrollTimeoutRef.current) return;
+      
+      handleScroll();
+      scrollTimeoutRef.current = setTimeout(() => {
+        scrollTimeoutRef.current = null;
+      }, 16); // ~60fps
+    };
+
+    window.addEventListener('scroll', throttledScroll, { passive: true });
     handleScroll();
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', throttledScroll);
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
     };
   }, []);
 

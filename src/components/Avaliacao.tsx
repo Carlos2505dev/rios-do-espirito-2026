@@ -1,0 +1,89 @@
+import React from 'react';
+import Button from './ui/button';
+
+const Avaliacao: React.FC = () => {
+  const handleAvaliacaoClick = () => {
+    window.location.href = '/feedback';
+  };
+
+  return (
+    <section id="avaliacao" className="relative py-20 md:py-32 px-6 overflow-hidden">
+      {/* Fundo com gradiente subtil */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#F5F9FF] via-[#F0F8FF] to-[#F5F9FF] z-0"></div>
+      
+      {/* Padrão geométrico decorativo */}
+      <div className="absolute inset-0 opacity-5 z-0">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-orange-400 rounded-full mix-blend-multiply filter blur-3xl"></div>
+      </div>
+
+      <div className="relative z-10 max-w-4xl mx-auto">
+        <div className="text-center">
+          {/* Label decorativa */}
+          <p 
+            className="font-aeonik font-semibold mb-4 text-lg"
+            style={{
+              color: 'var(--color-rvl-laranja)',
+              textTransform: 'uppercase',
+              letterSpacing: '0.05em',
+              fontSize: '0.875rem'
+            }}
+          >
+            Sua opinião importa
+          </p>
+
+          {/* Título principal */}
+          <h2 
+            className="font-aeonik font-bold mb-6"
+            style={{
+              fontSize: 'clamp(2rem, 5vw, 3.5rem)',
+              lineHeight: 1.2,
+              color: 'var(--color-rvl-escuro)'
+            }}
+          >
+            Nos ajude a melhorar
+          </h2>
+
+          {/* Subtítulo/Descrição */}
+          <p 
+            className="font-blauer text-lg md:text-xl mb-8"
+            style={{
+              color: 'var(--color-rvl-escuro)',
+              lineHeight: 1.6,
+              maxWidth: '600px',
+              marginLeft: 'auto',
+              marginRight: 'auto'
+            }}
+          >
+            Queremos que as próximas edições sejam ainda melhores! Sua opinião é fundamental para nós. Reserve um minuto para avaliar a estrutura, organização e a sua experiência geral na conferência. O formulário é rápido e pode ser anônimo.
+          </p>
+
+          {/* Botão CTA */}
+          <div className="flex justify-center">
+            <Button
+              onClick={handleAvaliacaoClick}
+              className="w-full md:w-fit"
+              boxClassName="gap-3"
+              buttonClassName="text-base md:text-lg"
+              fullWidth={false}
+            >
+              Avaliar a Conferência
+            </Button>
+          </div>
+        </div>
+      </div>
+
+      {/* Elemento decorativo de canto */}
+      <div 
+        className="absolute top-10 right-10 w-20 h-20 border-2 rounded-3xl opacity-10 hidden md:block"
+        style={{ borderColor: 'var(--color-rvl-laranja)' }}
+      ></div>
+      <div 
+        className="absolute bottom-10 left-10 w-16 h-16 border-2 rounded-2xl opacity-10 hidden md:block"
+        style={{ borderColor: 'var(--color-rvl-azul)' }}
+      ></div>
+    </section>
+  );
+};
+
+export default Avaliacao;

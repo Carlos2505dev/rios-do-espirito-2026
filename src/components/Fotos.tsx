@@ -81,10 +81,10 @@ const Fotos = () => {
           <div className="flex flex-col items-center">
             <p style={{ color: '#B5440A', fontFamily: 'var(--font-aeonik)', fontWeight: 500, marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.05em', fontSize: '0.875rem' }}>Galeria</p>
             <h2 style={{ fontFamily: 'var(--font-aeonik)', fontWeight: 700, marginBottom: '1rem' }}>
-              Memórias do Rio
+              Memórias CRE'26
             </h2>
             <p style={{ fontFamily: 'var(--font-blauer)', color: 'hsl(0 0% 10% / 0.7)', maxWidth: '42rem', fontSize: '1.125rem', marginBottom: '2rem' }}>
-              Clique no botão abaixo para acessar o álbum completo com todos os momentos da conferência.
+              Reviva os melhores momentos da nossa conferência. Clique no botão abaixo para acessar o álbum completo, baixar seus registros e relembrar o que vivemos.
             </p>
 
             <Button
@@ -95,7 +95,7 @@ const Fotos = () => {
               fullWidth={false}
             >
               <Images size={18} />
-              Acessar Todas as Fotos
+              Acessar Álbum de Fotos
             </Button>
           </div>
         </div>

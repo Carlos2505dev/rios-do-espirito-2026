@@ -1,5 +1,4 @@
 import { useEffect, useRef } from 'react';
-import Button from './ui/button';
 
 /**
  * Partners Section — "Conheça nossos braços"
@@ -16,35 +15,18 @@ import Button from './ui/button';
 const LOGO_IMAGE_URL =
   'https://dunamismovement.com/wp-content/uploads/2025/08/logos-off.png';
 
-/* ── Letters for the animated "CONECTE-SE" title ── */
-const TITLE_LETTERS = [
-  { char: 'C', font: 'obv-wide' },
-  { char: 'O', font: 'glorify' },
-  { char: 'N', font: 'obv-wide' },
-  { char: 'E', font: 'obv-wide' },
-  { char: 'C', font: 'obv-wide' },
-  { char: 'T', font: 'glorify' },
-  { char: 'E', font: 'glorify' },
-  { char: '-', font: 'obv-wide' },
-  { char: 'S', font: 'obv-wide' },
-  { char: 'E', font: 'glorify' },
-] as const;
-
 /* ── Subtitle words for the blur-in animation ── */
 const SUBTITLE_WORDS = ['Conheça', 'nossos', 'patrocinadores.'] as const;
 
 const Partners = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  const lettersRef = useRef<(HTMLSpanElement | null)[]>([]);
   const subtitleSpansRef = useRef<(HTMLSpanElement | null)[]>([]);
 
   useEffect(() => {
     /**
-     * Dynamically loads GSAP + ScrollTrigger only once, then runs
-     * the scroll-triggered letter reveal and subtitle blur animations.
+     * Subtitle blur-unblur animation only.
      */
     const loadGsapAndAnimate = async () => {
-      /* Avoid double-loading if scripts are already present */
       const gsapAlreadyLoaded = typeof (window as any).gsap !== 'undefined';
 
       if (!gsapAlreadyLoaded) {
@@ -61,25 +43,7 @@ const Partners = () => {
 
       gsap.registerPlugin(ScrollTrigger);
 
-      /* ── 1. Letter-by-letter title animation ── */
-      const validLetters = lettersRef.current.filter(Boolean);
-      if (validLetters.length > 0) {
-        gsap.to(validLetters, {
-          scrollTrigger: {
-            trigger: '.pw6-section',
-            start: 'top 85%',
-            toggleActions: 'play none none none',
-          },
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.6,
-          ease: 'power2.out',
-          stagger: 0.05,
-        });
-      }
-
-      /* ── 2. Subtitle blur-unblur animation ── */
+      /* ── Subtitle blur-unblur animation ── */
       const validSpans = subtitleSpansRef.current.filter(Boolean);
       if (validSpans.length > 0) {
         gsap.to(validSpans, {
@@ -90,7 +54,7 @@ const Partners = () => {
           },
           opacity: 1,
           filter: 'blur(0px)',
-          y: 0,
+          transform: 'translateY(0px)',
           duration: 1,
           ease: 'power2.out',
           stagger: 0.1,
@@ -113,26 +77,7 @@ const Partners = () => {
       {/* ── "CONECTE-SE" animated title ── */}
       <div className="pw6-section">
         <div className="pw6-text">
-          <h2 className="pw6-heading">
-            <span className="pw6-letras">
-              {TITLE_LETTERS.map((letter, index) => (
-                <span
-                  key={index}
-                  ref={(element) => { lettersRef.current[index] = element; }}
-                  style={{
-                    translate: 'none',
-                    rotate: 'none',
-                    scale: 'none',
-                    transform: 'translateY(100%) scale(0.85)',
-                    opacity: 0,
-                    fontFamily: 'var(--font-aeonik), sans-serif',
-                  }}
-                >
-                  {letter.char}
-                </span>
-              ))}
-            </span>
-          </h2>
+          <h2 className="pw6-heading">Conecte-se</h2>
         </div>
       </div>
 
@@ -143,12 +88,11 @@ const Partners = () => {
             key={index}
             ref={(element) => { subtitleSpansRef.current[index] = element; }}
             style={{
-              translate: 'none',
-              rotate: 'none',
-              scale: 'none',
-              transform: 'translate(0px, 10px)',
+              display: 'inline-block',
+              transform: 'translateY(10px)',
               filter: 'blur(8px)',
               opacity: 0,
+              willChange: 'opacity, filter, transform',
             }}
           >
             {word}
@@ -189,13 +133,6 @@ const Partners = () => {
       {/* ── Spacer ── */}
       <div className="partners-spacer" />
 
-      {/* ── CTA Button ── */}
-      <div className="partners-cta-wrapper">
-        <Button href="https://dunamismovement.com/conecte-se">
-          Saiba mais!
-        </Button>
-      </div>
-
       {/* ── Spacer ── */}
       <div className="partners-spacer" />
 
@@ -234,9 +171,12 @@ const PARTNERS_STYLES = `
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    width: 100%;
     background: #1a1a1a;
-    padding: 0 0 2rem;
+    padding: 2rem;
     overflow: hidden;
+    box-sizing: border-box;
   }
 
   .partners-spacer {
@@ -247,11 +187,23 @@ const PARTNERS_STYLES = `
 
   .pw6-section {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    max-width: 1200px;
     background: transparent;
     padding: 10px;
     box-sizing: border-box;
+  }
+
+  .pw6-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
   }
 
   .pw6-heading {
@@ -269,6 +221,9 @@ const PARTNERS_STYLES = `
   .pw6-letras {
     font-size: 0;
     letter-spacing: -0.05em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .pw6-letras span {
@@ -280,18 +235,7 @@ const PARTNERS_STYLES = `
     margin-right: -0.1rem;
   }
 
-  .pw6-glorify {
-    font-family: 'Glorify', serif;
-  }
 
-  .pw6-obv {
-    font-family: 'obviously-variable', sans-serif;
-    font-variation-settings: "wght" 613;
-  }
-
-  .pw6-obv.pw6-wide {
-    font-variation-settings: "wdth" 115, "wght" 613;
-  }
 
   /* ── "Conheça nossos braços." subtitle ── */
   .texto-bracos {
@@ -302,6 +246,9 @@ const PARTNERS_STYLES = `
     line-height: 1.5;
     margin: 0;
     padding: 0;
+    width: 100%;
+    max-width: 1200px;
+    box-sizing: border-box;
   }
 
   .texto-bracos span {
@@ -315,12 +262,15 @@ const PARTNERS_STYLES = `
   /* ── Infinite logo carousel ── */
   .carrossel-infinito {
     width: 100%;
+    display: flex;
+    justify-content: center;
     overflow: hidden;
     background: transparent;
   }
 
   .carrossel-track {
     display: flex;
+    padding: 0 2rem;
     flex-wrap: nowrap;
     width: max-content;
     gap: 0.9rem;

@@ -14,11 +14,12 @@ const Recomendacoes = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto">
         <div className="text-center text-white mb-12">
+          <p style={{ color: 'var(--color-rvl-laranja)', fontFamily: 'var(--font-aeonik)', fontWeight: 500, marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.05em', fontSize: '0.875rem' }}>Recomendações</p>
           <h2 className="text-4xl md:text-5xl font-aeonik font-bold mb-6">
-            Espalhe as Águas — Recomendações
+            Espalhe as Águas
           </h2>
           <p className="text-xl md:text-2xl font-blauer text-white/80 max-w-2xl mx-auto mb-8">
-            Sua voz multiplica o que Deus fez. Marque nossos perfis e continue fazendo parte deste mover.
+            A sua voz multiplica o que Deus fez! Você não pode compartilhar os links daqui, <strong className="text-white">mas pode (e deve!)</strong> postar as suas fotos.
           </p>
         </div>
 
@@ -26,17 +27,14 @@ const Recomendacoes = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
             <div className="lg:col-span-1 flex flex-col justify-center">
               <h3 className="text-3xl font-aeonik font-bold text-white mb-3">
-                Publique suas fotos
+                Publique seus registros
               </h3>
               <p className="font-blauer text-white/80 mb-6">
-                Use as hashtags e ajude a espalhar o que Deus está fazendo.
+                Use a hashtag <strong className="text-white">#CRE2026</strong> e marque nossos perfis para continuarmos juntos neste mover.
               </p>
               <div className="flex flex-wrap gap-3 mb-8">
                 <span className="px-5 py-2 bg-white/10 border border-white/20 rounded-full text-white font-aeonik">
-                  #RiosDoEspirito
-                </span>
-                <span className="px-5 py-2 bg-white/10 border border-white/20 rounded-full text-white font-aeonik">
-                  #AvivamentoQueFlui
+                  #CRE2026
                 </span>
               </div>
               <a 
