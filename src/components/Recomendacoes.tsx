@@ -86,7 +86,7 @@ const Recomendacoes = () => {
             </p>
             <div className="flex flex-wrap gap-3">
               <a 
-                href="https://www.instagram.com/verbodavidacabula/" 
+                href="https://www.instagram.com/verbocabula/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 aria-label="Seguir @verbodavidacabula no Instagram"

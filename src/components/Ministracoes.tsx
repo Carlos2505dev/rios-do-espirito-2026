@@ -5,6 +5,12 @@ import ElectricBorder from './ElectricBorder';
 const Ministracoes = () => {
   const ministracoes = [
     {
+      title: "Profundidade",
+      speaker: "Davi Silva",
+      photo: "/assets/Ministros/davi.webp",
+      photoPosition: "center 15%"
+    },
+    {
       title: "O Fluir do Espírito",
       speaker: "Pr. Emerson Miranda",
       photo: "/assets/Ministros/emerson.webp",
@@ -15,12 +21,6 @@ const Ministracoes = () => {
       speaker: "Vânia Nascimento",
       photo: "/assets/Ministros/vania.webp",
       photoPosition: "center 30%"
-    },
-    {
-      title: "Profundidade",
-      speaker: "Davi Silva",
-      photo: "/assets/Ministros/davi.webp",
-      photoPosition: "center 15%"
     },
     {
       title: "Águas Vivas",
