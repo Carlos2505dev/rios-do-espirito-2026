@@ -76,7 +76,7 @@ const Hero: React.FC = () => {
     >
       <div className="homeLead-bg" style={{ opacity: 1 }}>
         <img
-          src="/assets/lead-bg.jpg"
+          src="/assets/background_hero.webp"
           alt=""
           fetchPriority="high"
         />

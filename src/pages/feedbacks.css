@@ -170,8 +170,8 @@
 .contact-section input:focus,
 .contact-section textarea:focus {
     background-color: rgba(255, 255, 255, 0.95);
-    border-color: var(--cor-azul);
-    box-shadow: 0 0 0 3px rgba(123, 200, 232, 0.1);
+    border-color: var(--cor-laranja);
+    box-shadow: 0 0 0 3px rgba(211, 104, 60, 0.2);
 }
 
 .contact-section textarea {
@@ -216,7 +216,7 @@
 
 .selectbotao:hover {
     background-color: rgba(255, 255, 255, 0.95);
-    border-color: var(--cor-azul);
+    border-color: var(--cor-laranja);
 }
 
 .selectlista {
@@ -242,7 +242,7 @@
 }
 
 .selectlista::-webkit-scrollbar-thumb {
-    background: var(--cor-azul);
+    background: var(--cor-laranja);
     border-radius: 10px;
 }
 
@@ -257,16 +257,16 @@
 }
 
 .selectopcao:hover {
-    background-color: var(--cor-azul);
+    background-color: var(--cor-laranja);
     color: var(--cor-branco);
 }
 
 .contact-section button[type=submit] {
     align-items: center;
-    background: linear-gradient(135deg, hsl(195 55% 59%) 0%, hsl(195 55% 45%) 100%);
+    background: linear-gradient(135deg, hsl(16 79% 54%) 0%, hsl(16 79% 44%) 100%);
     border: none;
     border-radius: 50px;
-    box-shadow: 0 4px 15px rgba(123, 200, 232, 0.3);
+    box-shadow: 0 4px 15px rgba(211, 104, 60, 0.3);
     color: var(--cor-branco);
     cursor: pointer;
     display: flex;
@@ -283,8 +283,8 @@
 }
 
 .contact-section button[type=submit]:hover:not(:disabled) {
-    background: linear-gradient(135deg, hsl(195 55% 45%) 0%, hsl(195 55% 35%) 100%);
-    box-shadow: 0 6px 25px rgba(123, 200, 232, 0.4);
+    background: linear-gradient(135deg, hsl(16 79% 44%) 0%, hsl(16 79% 34%) 100%);
+    box-shadow: 0 6px 25px rgba(211, 104, 60, 0.4);
     transform: translateY(-2px);
 }
 

@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, Suspense, lazy } from 'react';
 import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
-import Footer from '../components/Footer';
 import Button from '../components/ui/button';
 import './feedbacks.css';
+
+const Footer = lazy(() => import('../components/Footer'));
 
 // Inicializar EmailJS
 const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
@@ -450,7 +451,9 @@ const FeedbackPage = () => {
 
                 </section>
             </main>
-            <Footer />
+            <Suspense fallback={null}>
+                <Footer />
+            </Suspense>
         </div>
     );
 };
