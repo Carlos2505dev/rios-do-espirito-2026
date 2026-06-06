@@ -14,6 +14,7 @@ const Partners = lazy(() => import('./components/Partners'));
 const Recomendacoes = lazy(() => import('./components/Recomendacoes'));
 const Footer = lazy(() => import('./components/Footer'));
 const FeedbackPage = lazy(() => import('./pages/feedbacks'));
+const TestemunhosPage = lazy(() => import('./pages/testemunhos'));
 
 // Home component
 const Home = () => {
@@ -66,6 +67,11 @@ const App = () => {
           <Route path="/feedback" element={
             <Suspense fallback={<LoadingSpinner />}>
               <FeedbackPage />
+            </Suspense>
+          } />
+          <Route path="/testemunhos" element={
+            <Suspense fallback={<LoadingSpinner />}>
+              <TestemunhosPage />
             </Suspense>
           } />
         </Routes>

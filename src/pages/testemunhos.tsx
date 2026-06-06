@@ -2,7 +2,7 @@ import React, { useState, Suspense, lazy } from 'react';
 import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
 import Button from '../components/ui/button';
-import './feedbacks.css';
+import './testemunhos.css';
 
 const Footer = lazy(() => import('../components/Footer'));
 
@@ -26,7 +26,7 @@ const CustomSelect: React.FC<CustomSelectProps> = ({ label, options, value, onCh
 
     return (
         <div className="campo">
-            <label>{label}</label>
+            <label className="mb-2 block">{label}</label>
             <div className="selectcustomizado">
                 <div
                     className={`selectbotao ${error ? '!border-red-500' : ''}`}
@@ -60,18 +60,11 @@ const CustomSelect: React.FC<CustomSelectProps> = ({ label, options, value, onCh
     );
 };
 
-const FeedbackPage = () => {
+const TestemunhosPage = () => {
     const [formData, setFormData] = useState({
         nome: '',
-        email: '',
-        telefone: '',
-        satisfacao: '',
-        pontosPositivos: '',
-        pontosNegativosFalta: '',
-        organizacao: '',
-        recomendaria: '',
-        proximoEvento: '',
-        comentarios: ''
+        testemunho: '',
+        autorizacao: ''
     });
     const [errors, setErrors] = useState<Record<string, boolean>>({});
     const [isSuccess, setIsSuccess] = useState(false);
@@ -83,12 +76,8 @@ const FeedbackPage = () => {
 
     const validateForm = () => {
         const newErrors: Record<string, boolean> = {};
-        if (formData.email.trim() && !/^\S+@\S+\.\S+$/.test(formData.email)) newErrors.email = true;
-        if (!formData.satisfacao) newErrors.satisfacao = true;
-        if (!formData.pontosPositivos.trim()) newErrors.pontosPositivos = true;
-        if (!formData.pontosNegativosFalta.trim()) newErrors.pontosNegativosFalta = true;
-        if (!formData.organizacao) newErrors.organizacao = true;
-        if (!formData.recomendaria) newErrors.recomendaria = true;
+        if (!formData.testemunho.trim() || formData.testemunho.trim().length < 100) newErrors.testemunho = true;
+        if (!formData.autorizacao) newErrors.autorizacao = true;
 
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
@@ -103,32 +92,21 @@ const FeedbackPage = () => {
 
         const templateParams = {
             from_name: formData.nome.trim() || 'Anônimo',
-            from_email: formData.email.trim(),
-            phone: formData.telefone || 'Não fornecido',
-            satisfacao_geral: formData.satisfacao,
-            pontos_positivos: formData.pontosPositivos,
-            pontos_negativos_falta: formData.pontosNegativosFalta,
-            avaliacao_organizacao: formData.organizacao,
-            recomendaria: formData.recomendaria,
-            interesse_proximo_evento: formData.proximoEvento || 'Não respondido',
-            comentarios_adicionais: formData.comentarios.trim() || 'Sem comentários',
-            to_email: 'inovetecnologia2025@gmail.com',
+            message: formData.testemunho,
+            autorizacao: formData.autorizacao,
             timestamp: new Date().toLocaleString('pt-BR'),
-            origin_page: 'Formulário de Feedback - Conferência Rios do Espírito',
+            origin_page: 'Formulário de Testemunhos - Conferência Rios do Espírito',
             lead_id: Math.random().toString(36).substring(2, 9).toUpperCase(),
             year: new Date().getFullYear()
         };
 
         try {
             const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-            const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_FEEDBACK_ID;
+            const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_TESTEMUNHOS_ID;
             const publicKeyEnv = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
-            console.log('EmailJS Config:', { serviceId, templateId, publicKeyEnv });
-
             if (!serviceId || !templateId || !publicKeyEnv) {
-                console.error('EmailJS credentials missing. Please check your .env file.');
-                console.error('Values:', { serviceId, templateId, publicKeyEnv });
+                console.error('EmailJS credentials missing. Please check sua .env file.');
                 alert('Erro na configuração do envio. Por favor, tente novamente mais tarde.');
                 setIsLoading(false);
                 return;
@@ -143,19 +121,11 @@ const FeedbackPage = () => {
             setIsSuccess(true);
             setFormData({
                 nome: '',
-                email: '',
-                telefone: '',
-                satisfacao: '',
-                pontosPositivos: '',
-                pontosNegativosFalta: '',
-                organizacao: '',
-                recomendaria: '',
-                proximoEvento: '',
-                comentarios: ''
+                testemunho: '',
+                autorizacao: ''
             });
         } catch (error: any) {
             console.error('Failed to send email:', error);
-            // EmailJS error usually contains a 'text' property with the reason
             const errorMessage = error?.text || 'Ocorreu um erro ao enviar sua mensagem. Por favor, tente novamente.';
             alert(`Erro: ${errorMessage}`);
         } finally {
@@ -171,7 +141,6 @@ const FeedbackPage = () => {
             </div>
             <div className="pointer-events-none absolute -left-10 top-40 h-[320px] w-[320px] rounded-full bg-[hsl(16_79%_54%)]/10 blur-[120px]"></div>
 
-            {/* Grid Effect — fixed height container matching Hero section dimensions */}
             <div className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-[600px] overflow-hidden" aria-hidden="true">
                 <div
                     className="absolute inset-0"
@@ -226,7 +195,6 @@ const FeedbackPage = () => {
                 <section className="contact-section !pt-20 !pb-20">
                     <div className="quadro">
                         <div className="titulo">
-                            {/* Botão de Voltar */}
                             <motion.button
                                 initial={{ opacity: 0, y: -20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
@@ -241,7 +209,6 @@ const FeedbackPage = () => {
                                 Voltar
                             </motion.button>
 
-                            {/* Logo da Conferência */}
                             <motion.div
                                 initial={{ opacity: 0, y: -20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
@@ -256,6 +223,16 @@ const FeedbackPage = () => {
                                     style={{ filter: 'brightness(0)' }}
                                 />
                             </motion.div>
+                            <motion.p
+                                initial={{ opacity: 0, y: -10 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5, delay: 0.1 }}
+                                className="text-center text-sm sm:text-base max-w-2xl mx-auto mb-8 font-medium"
+                                style={{ color: '#000000' }}
+                            >
+                                Queremos ouvir o que Deus fez na sua vida através da Conferência Rios do Espírito. Seu testemunho pode inspirar outras pessoas e também poderá ser usado em nossos conteúdos (caso seja autorizado)
+                            </motion.p>
                         </div>
 
                         <motion.form
@@ -288,126 +265,52 @@ const FeedbackPage = () => {
                             </motion.div>
 
                             <motion.div variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }} className="campo">
-                                <label htmlFor="email">E-mail (Opcional)</label>
-                                <input
-                                    type="email"
-                                    id="email"
-                                    value={formData.email}
-                                    placeholder="seu@email.com (opcional)"
-                                    className={errors.email ? '!border-red-500' : ''}
-                                    onChange={(e) => {
-                                        handleChange('email', e.target.value);
-                                        if (errors.email) setErrors(prev => ({ ...prev, email: false }));
-                                    }}
-                                />
-                            </motion.div>
-
-                            <motion.div variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }} className="campo">
-                                <label htmlFor="telefone">Telefone (Opcional)</label>
-                                <input
-                                    type="tel"
-                                    id="telefone"
-                                    value={formData.telefone}
-                                    placeholder="(11) 99999-9999"
-                                    onChange={(e) => {
-                                        handleChange('telefone', e.target.value);
-                                    }}
-                                />
-                            </motion.div>
-
-                            <motion.div variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }} className="flex flex-col gap-4">
-                                <CustomSelect
-                                    label="Qual foi sua satisfação geral com a conferência? *"
-                                    options={["Excelente", "Muito Bom", "Bom", "Satisfatório", "Precisa Melhorar"]}
-                                    value={formData.satisfacao}
-                                    placeholder="Selecione uma opção"
-                                    error={errors.satisfacao}
-                                    onChange={(val) => {
-                                        handleChange('satisfacao', val);
-                                        if (errors.satisfacao) setErrors(prev => ({ ...prev, satisfacao: false }));
-                                    }}
-                                />
-                            </motion.div>
-
-                            <motion.div variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }} className="campo">
-                                <label htmlFor="pontosPositivos">Quais foram os pontos positivos para você? *</label>
+                                <label htmlFor="testemunho">
+                                    <span className="block mb-2 font-bold text-[var(--cor-escuro)]">Compartilhe seu testemunho *</span>
+                                    <span className="block text-sm font-normal text-gray-600 mb-1">
+                                        • Como você estava ANTES de participar da conferência? (Tente ser específico: emocionalmente, espiritualmente ou em alguma área da sua vida)
+                                    </span>
+                                    <span className="block text-sm font-normal text-gray-600 mb-1">
+                                        • Durante a conferência, teve algum momento marcante? (Pode ser uma palavra, um culto, uma experiência com Deus… descreva o que aconteceu)
+                                    </span>
+                                    <span className="block text-sm font-normal text-gray-600 mb-1">
+                                        • O que MUDOU na sua vida depois da conferência? (Se possível, conte mudanças práticas — atitudes, decisões, direção, cura, etc.)
+                                    </span>
+                                    <span className="block text-sm font-normal text-gray-600 mb-3">
+                                        • Se você pudesse resumir sua experiência, o que você falaria?
+                                    </span>
+                                </label>
                                 <textarea
-                                    id="pontosPositivos"
-                                    value={formData.pontosPositivos}
-                                    placeholder="Descreva o que mais te agradou na conferência..."
-                                    rows={3}
-                                    className={errors.pontosPositivos ? '!border-red-500' : ''}
+                                    id="testemunho"
+                                    value={formData.testemunho}
+                                    placeholder="Escreva seu testemunho aqui..."
+                                    rows={8}
+                                    style={{ overflow: 'hidden' }}
+                                    className={errors.testemunho ? '!border-red-500' : ''}
                                     onChange={(e) => {
-                                        handleChange('pontosPositivos', e.target.value);
-                                        if (errors.pontosPositivos) setErrors(prev => ({ ...prev, pontosPositivos: false }));
+                                        e.target.style.height = 'auto';
+                                        e.target.style.height = `${e.target.scrollHeight}px`;
+                                        handleChange('testemunho', e.target.value);
+                                        if (errors.testemunho && e.target.value.trim().length >= 100) setErrors(prev => ({ ...prev, testemunho: false }));
                                     }}
                                 ></textarea>
-                            </motion.div>
-
-                            <motion.div variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }} className="campo">
-                                <label htmlFor="pontosNegativosFalta">O que poderia ter sido melhor ou o que faltou? *</label>
-                                <textarea
-                                    id="pontosNegativosFalta"
-                                    value={formData.pontosNegativosFalta}
-                                    placeholder="Compartilhe sugestões de melhoria para a próxima conferência..."
-                                    rows={3}
-                                    className={errors.pontosNegativosFalta ? '!border-red-500' : ''}
-                                    onChange={(e) => {
-                                        handleChange('pontosNegativosFalta', e.target.value);
-                                        if (errors.pontosNegativosFalta) setErrors(prev => ({ ...prev, pontosNegativosFalta: false }));
-                                    }}
-                                ></textarea>
+                                {errors.testemunho && (
+                                    <p className="text-red-500 text-sm mt-1 px-4">Seu testemunho deve ter no mínimo 100 caracteres.</p>
+                                )}
                             </motion.div>
 
                             <motion.div variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }}>
                                 <CustomSelect
-                                    label="Como você avalia a organização da conferência? *"
-                                    options={["Perfeita", "Muito Boa", "Boa", "Aceitável", "Confusa"]}
-                                    value={formData.organizacao}
+                                    label="Você autoriza o uso do seu testemunho (texto, imagem e vídeo) para divulgação da Conferência Rios do Espírito em redes sociais, site e outros materiais? *"
+                                    options={["Sim, autorizo!", "Não autorizo!"]}
+                                    value={formData.autorizacao}
                                     placeholder="Selecione uma opção"
-                                    error={errors.organizacao}
+                                    error={errors.autorizacao}
                                     onChange={(val) => {
-                                        handleChange('organizacao', val);
-                                        if (errors.organizacao) setErrors(prev => ({ ...prev, organizacao: false }));
+                                        handleChange('autorizacao', val);
+                                        if (errors.autorizacao) setErrors(prev => ({ ...prev, autorizacao: false }));
                                     }}
                                 />
-                            </motion.div>
-
-                            <motion.div variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }}>
-                                <CustomSelect
-                                    label="Você recomendaria esta conferência para amigos e familiares? *"
-                                    options={["Sim, com certeza", "Provavelmente sim", "Talvez", "Provavelmente não", "Definitivamente não"]}
-                                    value={formData.recomendaria}
-                                    placeholder="Selecione uma opção"
-                                    error={errors.recomendaria}
-                                    onChange={(val) => {
-                                        handleChange('recomendaria', val);
-                                        if (errors.recomendaria) setErrors(prev => ({ ...prev, recomendaria: false }));
-                                    }}
-                                />
-                            </motion.div>
-
-                            <motion.div variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }}>
-                                <CustomSelect
-                                    label="Teria interesse em participar da próxima conferência?"
-                                    options={["Muito interesse", "Algum interesse", "Talvez", "Pouco interesse", "Nenhum interesse"]}
-                                    value={formData.proximoEvento}
-                                    placeholder="Selecione uma opção"
-                                    onChange={(val) => {
-                                        handleChange('proximoEvento', val);
-                                    }}
-                                />
-                            </motion.div>
-
-                            <motion.div variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }} className="campo">
-                                <label htmlFor="comentarios">Comentários Adicionais</label>
-                                <textarea
-                                    id="comentarios"
-                                    value={formData.comentarios}
-                                    placeholder="Há algo mais que você gostaria de compartilhar? (Opcional)"
-                                    rows={3}
-                                    onChange={(e) => handleChange('comentarios', e.target.value)}
-                                ></textarea>
                             </motion.div>
 
                             <motion.div variants={{ hidden: { opacity: 0, scale: 0.9 }, show: { opacity: 1, scale: 1 } }} className="mt-8 flex justify-center w-fit mx-auto">
@@ -416,13 +319,12 @@ const FeedbackPage = () => {
                                     disabled={isLoading}
                                     loading={isLoading}
                                 >
-                                    {isLoading ? 'Enviando...' : 'Enviar Feedback'}
+                                    {isLoading ? 'Enviando...' : 'Enviar Testemunho'}
                                 </Button>
                             </motion.div>
                         </motion.form>
                     </div>
 
-                    {/* Success Modal */}
                     {isSuccess && (
                         <div className="modal-sucesso">
                             <motion.div
@@ -439,10 +341,10 @@ const FeedbackPage = () => {
                                         </svg>
                                     </div>
                                 </div>
-                                <h2>Feedback Recebido!</h2>
-                                <p>Obrigado por compartilhar seus comentários conosco.</p>
+                                <h2>Testemunho Recebido!</h2>
+                                <p>Obrigado por compartilhar o que Deus fez na sua vida.</p>
                                 <p className="subtexto">
-                                    Sua contribuição nos ajuda a <strong>melhorar continuamente a cada edição</strong>.
+                                    Seu testemunho <strong>edificará muitas outras vidas!</strong>
                                 </p>
                                 <button className="btn-inovetech-primary inline-flex items-center justify-center whitespace-nowrap rounded-full font-sf-pro font-medium tracking-tight h-[3.75rem] px-10 text-lg w-full sm:w-auto sm:min-w-[270px] mt-2" onClick={() => setIsSuccess(false)}>Fechar</button>
                             </motion.div>
@@ -458,4 +360,4 @@ const FeedbackPage = () => {
     );
 };
 
-export default FeedbackPage;
+export default TestemunhosPage;

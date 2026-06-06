@@ -110,7 +110,7 @@ const Ministracoes = () => {
             Queremos ouvir como a conferência impactou a sua jornada. Compartilhe com a nossa equipe o que aconteceu com você; o seu testemunho edifica a nossa igreja.
           </p>
           <Button
-            href="#"
+            href="/testemunhos"
             className="shadow-[0_4px_24px_rgba(245,130,58,0.35)] flex items-center justify-center gap-2"
             boxClassName="!p-1.5"
             buttonClassName="!py-3 !px-8 !text-sm !font-bold uppercase tracking-wide flex items-center gap-2"
