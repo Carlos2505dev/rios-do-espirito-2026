@@ -7,7 +7,6 @@ export const Header: React.FC = () => {
   const scrollTimeoutRef = useRef<number | null>(null);
 
   useEffect(() => {
-    // Get homeLead height once on mount
     const homeLead = document.querySelector('.homeLead') as HTMLElement;
     if (homeLead) {
       homeLeadHeightRef.current = homeLead.offsetHeight;
@@ -45,14 +44,13 @@ export const Header: React.FC = () => {
       }
     };
 
-    // Throttle scroll handler
     const throttledScroll = () => {
       if (scrollTimeoutRef.current) return;
       
       handleScroll();
       scrollTimeoutRef.current = setTimeout(() => {
         scrollTimeoutRef.current = null;
-      }, 16); // ~60fps
+      }, 16);
     };
 
     window.addEventListener('scroll', throttledScroll, { passive: true });

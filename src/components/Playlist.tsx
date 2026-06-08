@@ -4,7 +4,6 @@ const Playlist = () => {
   return (
     <section id="playlist" className="py-20 md:py-28 px-4 md:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
-        {/* Main content */}
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto">
             <p
               style={{
@@ -46,7 +45,6 @@ const Playlist = () => {
               Os louvores que cantamos juntos continuam ecoando. Preparamos uma playlist com as músicas que marcaram os dias da nossa conferência para você continuar adorando em casa.
             </p>
 
-            {/* CTA Buttons */}
             <div className="flex flex-row gap-4 justify-center w-full">
               <Button
                 href="https://open.spotify.com/playlist/YOUR_SPOTIFY_ID"
@@ -75,7 +73,6 @@ const Playlist = () => {
               </Button>
             </div>
 
-            {/* Additional note */}
             <p
               style={{
                 fontFamily: 'var(--font-aeonik)',

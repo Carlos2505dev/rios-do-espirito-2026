@@ -16,7 +16,7 @@ const LOGO_IMAGE_URL =
   'https://dunamismovement.com/wp-content/uploads/2025/08/logos-off.png';
 
 /* ── Subtitle words for the blur-in animation ── */
-const SUBTITLE_WORDS = ['Conheça', 'nossos', 'patrocinadores.'] as const;
+const SUBTITLE_WORDS = ['Conheça', 'nossos', 'parceiros.'] as const;
 
 const Partners = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -71,17 +71,14 @@ const Partners = () => {
       id="patrocinadores"
       className="partners-section"
     >
-      {/* ── Spacer ── */}
       <div className="partners-spacer" />
 
-      {/* ── "CONECTE-SE" animated title ── */}
       <div className="pw6-section">
         <div className="pw6-text">
           <h2 className="pw6-heading">Conecte-se</h2>
         </div>
       </div>
 
-      {/* ── "Conheça nossos braços." subtitle ── */}
       <p className="texto-bracos">
         {SUBTITLE_WORDS.map((word, index) => (
           <span
@@ -101,13 +98,10 @@ const Partners = () => {
         ))}
       </p>
 
-      {/* ── Spacer ── */}
       <div className="partners-spacer" />
 
-      {/* ── Infinite logo carousel ── */}
       <section className="carrossel-infinito" aria-label="Logos dos braços do Dunamis">
         <div className="carrossel-track">
-          {/* Block A — original images */}
           {Array.from({ length: 4 }).map((_, index) => (
             <img
               key={`logo-a-${index}`}
@@ -117,7 +111,6 @@ const Partners = () => {
             />
           ))}
 
-          {/* Block B — duplicated for seamless loop */}
           {Array.from({ length: 4 }).map((_, index) => (
             <img
               key={`logo-b-${index}`}
@@ -130,13 +123,10 @@ const Partners = () => {
         </div>
       </section>
 
-      {/* ── Spacer ── */}
       <div className="partners-spacer" />
 
-      {/* ── Spacer ── */}
       <div className="partners-spacer" />
 
-      {/* ── Scoped styles (exact replica of the Dunamis source) ── */}
       <style>{PARTNERS_STYLES}</style>
     </section>
   );

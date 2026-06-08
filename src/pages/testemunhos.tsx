@@ -6,7 +6,6 @@ import './testemunhos.css';
 
 const Footer = lazy(() => import('../components/Footer'));
 
-// Inicializar EmailJS
 const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 if (publicKey) {
     emailjs.init(publicKey);

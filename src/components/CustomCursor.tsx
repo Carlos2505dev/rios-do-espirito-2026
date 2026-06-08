@@ -28,7 +28,6 @@ export const CustomCursor = () => {
             mouseYRef.current = e.clientY;
             hasMovedRef.current = true;
 
-            // Check if hovering over interactive elements
             const target = e.target as HTMLElement;
             const hovering = !!target.closest("a, button, [role='button']");
             
@@ -43,7 +42,6 @@ export const CustomCursor = () => {
                 }
             }
 
-            // Start animation on first move
             if (!requestRef.current) {
                 animateCursor();
             }

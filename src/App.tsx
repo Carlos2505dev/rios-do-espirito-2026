@@ -6,7 +6,6 @@ import { CustomCursor } from './components/CustomCursor';
 import { LoadingSpinner } from './components/ui/LoadingSpinner';
 import Fotos from './components/Fotos';
 
-// Lazy loading for components below the fold
 const Ministracoes = lazy(() => import('./components/Ministracoes'));
 const Avaliacao = lazy(() => import('./components/Avaliacao'));
 const Playlist = lazy(() => import('./components/Playlist'));
@@ -16,7 +15,6 @@ const Footer = lazy(() => import('./components/Footer'));
 const FeedbackPage = lazy(() => import('./pages/feedbacks'));
 const TestemunhosPage = lazy(() => import('./pages/testemunhos'));
 
-// Home component
 const Home = () => {
   return (
     <>

@@ -6,7 +6,6 @@ import './feedbacks.css';
 
 const Footer = lazy(() => import('../components/Footer'));
 
-// Inicializar EmailJS
 const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 if (publicKey) {
     emailjs.init(publicKey);
@@ -155,7 +154,6 @@ const FeedbackPage = () => {
             });
         } catch (error: any) {
             console.error('Failed to send email:', error);
-            // EmailJS error usually contains a 'text' property with the reason
             const errorMessage = error?.text || 'Ocorreu um erro ao enviar sua mensagem. Por favor, tente novamente.';
             alert(`Erro: ${errorMessage}`);
         } finally {
@@ -171,7 +169,6 @@ const FeedbackPage = () => {
             </div>
             <div className="pointer-events-none absolute -left-10 top-40 h-[320px] w-[320px] rounded-full bg-[hsl(16_79%_54%)]/10 blur-[120px]"></div>
 
-            {/* Grid Effect — fixed height container matching Hero section dimensions */}
             <div className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-[600px] overflow-hidden" aria-hidden="true">
                 <div
                     className="absolute inset-0"
@@ -226,7 +223,6 @@ const FeedbackPage = () => {
                 <section className="contact-section !pt-20 !pb-20">
                     <div className="quadro">
                         <div className="titulo">
-                            {/* Botão de Voltar */}
                             <motion.button
                                 initial={{ opacity: 0, y: -20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
@@ -241,7 +237,6 @@ const FeedbackPage = () => {
                                 Voltar
                             </motion.button>
 
-                            {/* Logo da Conferência */}
                             <motion.div
                                 initial={{ opacity: 0, y: -20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
@@ -422,7 +417,6 @@ const FeedbackPage = () => {
                         </motion.form>
                     </div>
 
-                    {/* Success Modal */}
                     {isSuccess && (
                         <div className="modal-sucesso">
                             <motion.div

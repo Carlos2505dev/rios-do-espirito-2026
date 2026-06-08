@@ -57,8 +57,8 @@ const Fotos = () => {
         }
         .fotos-gallery-item {
           flex: 0 0 auto !important;
-          width: 12rem !important; /* w-48 */
-          height: 10rem !important; /* h-40 */
+          width: 12rem !important;
+          height: 10rem !important;
           border-radius: 0.5rem !important;
           overflow: hidden !important;
           background-size: cover !important;
@@ -70,8 +70,8 @@ const Fotos = () => {
         }
         @media (min-width: 768px) {
           .fotos-gallery-item {
-            width: 16rem !important; /* md:w-64 */
-            height: 14rem !important; /* md:h-56 */
+            width: 16rem !important;
+            height: 14rem !important;
           }
         }
       `}</style>
@@ -100,7 +100,6 @@ const Fotos = () => {
           </div>
         </div>
 
-        {/* Carrossel de imagens */}
         <div style={{ overflow: 'hidden' }}>
           <div style={{ position: 'relative', height: '10rem', marginBottom: '1rem' }} className="md:h-56">
             <div style={{ position: 'relative', width: '100%', height: '100%', overflow: 'hidden' }}>
