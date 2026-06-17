@@ -1,21 +1,42 @@
 import { useEffect, useRef } from 'react';
 
-/**
- * Partners Section — "Conheça nossos braços"
- *
- * Exact replica of the Dunamis Movement "bracos" section.
- * Contains:
- *  1. Animated "CONECTE-SE" title (letter-by-letter reveal via GSAP/ScrollTrigger)
- *  2. "Conheça nossos braços." subtitle with blur-unblur animation
- *  3. Infinite horizontal logo carousel
- *  4. "Saiba mais!" CTA button
- */
+const CAROUSEL_ITEMS = [
+  {
+    src: '/assets/Patrocinadores/Patrocinadores.webp',
+    links: [
+      // Linha de Cima
+      { top: '0%', left: '0%', width: '20%', height: '50%', link: 'https://instagram.com/laisreisassessoria' },
+      { top: '0%', left: '20%', width: '20%', height: '50%', link: 'https://instagram.com/conectadosvv_' },
+      { top: '0%', left: '40%', width: '20%', height: '50%' },
+      { top: '0%', left: '60%', width: '20%', height: '50%', link: 'https://instagram.com/rebecacriacestas' },
+      { top: '0%', left: '80%', width: '20%', height: '50%', link: 'https://instagram.com/meumana.devocional' },
+      // Linha de Baixo
+      { top: '50%', left: '0%', width: '20%', height: '50%', link: 'https://instagram.com/luminavittae' },
+      { top: '50%', left: '20%', width: '20%', height: '50%', link: 'https://instagram.com/mmcontabilidade' },
+      { top: '50%', left: '40%', width: '20%', height: '50%', link: 'https://instagram.com/ofertaodemoveis' },
+      { top: '50%', left: '60%', width: '20%', height: '50%', link: 'https://instagram.com/prisciladiiasnails' },
+      { top: '50%', left: '80%', width: '20%', height: '50%', link: 'https://instagram.com/deliciasdaneneu/' },
+    ]
+  },
+  {
+    src: '/assets/Patrocinadores/Patrocinadores_1.png',
+    links: [
+      // Linha de Cima
+      { top: '0%', left: '0%', width: '20%', height: '50%', link: 'https://instagram.com/dolceamore_confeitaria' },
+      { top: '0%', left: '20%', width: '20%', height: '50%', link: 'https://instagram.com/camilacerqueira.arq' },
+      { top: '0%', left: '40%', width: '20%', height: '50%', link: 'https://instagram.com/multhy.com.br' },
+      { top: '0%', left: '60%', width: '20%', height: '50%', link: 'https://instagram.com/maxwebergrupo' },
+      { top: '0%', left: '80%', width: '20%', height: '50%', link: 'https://instagram.com/academiainfinitylife' },
+      // Linha de Baixo
+      { top: '50%', left: '0%', width: '20%', height: '50%', link: 'https://instagram.com/enjoybrasil.app' },
+      { top: '50%', left: '20%', width: '20%', height: '50%' },
+      { top: '50%', left: '40%', width: '20%', height: '50%', link: 'https://instagram.com/inovetecch' },
+      { top: '50%', left: '60%', width: '20%', height: '50%', link: 'https://instagram.com/dr.albernaz' },
+      { top: '50%', left: '80%', width: '20%', height: '50%', link: 'https://instagram.com/paozinhodelicia_da_vilma' },
+    ]
+  }
+];
 
-/* ── Logo image URL (duplicated for seamless infinite scroll) ── */
-const LOGO_IMAGE_URL =
-  'https://dunamismovement.com/wp-content/uploads/2025/08/logos-off.png';
-
-/* ── Subtitle words for the blur-in animation ── */
 const SUBTITLE_WORDS = ['Conheça', 'nossos', 'parceiros.'] as const;
 
 const Partners = () => {
@@ -23,9 +44,6 @@ const Partners = () => {
   const subtitleSpansRef = useRef<(HTMLSpanElement | null)[]>([]);
 
   useEffect(() => {
-    /**
-     * Subtitle blur-unblur animation only.
-     */
     const loadGsapAndAnimate = async () => {
       const gsapAlreadyLoaded = typeof (window as any).gsap !== 'undefined';
 
@@ -43,7 +61,6 @@ const Partners = () => {
 
       gsap.registerPlugin(ScrollTrigger);
 
-      /* ── Subtitle blur-unblur animation ── */
       const validSpans = subtitleSpansRef.current.filter(Boolean);
       if (validSpans.length > 0) {
         gsap.to(validSpans, {
@@ -100,25 +117,66 @@ const Partners = () => {
 
       <div className="partners-spacer" />
 
-      <section className="carrossel-infinito" aria-label="Logos dos braços do Dunamis">
+      <section className="carrossel-infinito" aria-label="Logomarcas dos parceiros">
         <div className="carrossel-track">
-          {Array.from({ length: 4 }).map((_, index) => (
-            <img
-              key={`logo-a-${index}`}
-              decoding="async"
-              src={LOGO_IMAGE_URL}
-              alt="Logos"
-            />
+          {Array.from({ length: 4 }).map((_, repeatIndex) => (
+            CAROUSEL_ITEMS.map((item, itemIndex) => (
+              <div key={`logo-a-${repeatIndex}-${itemIndex}`} className="image-wrapper">
+                <img
+                  decoding="async"
+                  src={item.src}
+                  alt="Logos Patrocinadores"
+                />
+                {item.links.map((sponsor, index) => (
+                  sponsor.link ? (
+                    <a
+                      key={`link-a-${repeatIndex}-${itemIndex}-${index}`}
+                      href={sponsor.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="sponsor-overlay-link"
+                      style={{
+                        top: sponsor.top,
+                        left: sponsor.left,
+                        width: sponsor.width,
+                        height: sponsor.height,
+                      }}
+                      aria-label="Acessar instagram do patrocinador"
+                    />
+                  ) : null
+                ))}
+              </div>
+            ))
           ))}
 
-          {Array.from({ length: 4 }).map((_, index) => (
-            <img
-              key={`logo-b-${index}`}
-              decoding="async"
-              src={LOGO_IMAGE_URL}
-              alt="Logos"
-              aria-hidden="true"
-            />
+          {Array.from({ length: 4 }).map((_, repeatIndex) => (
+            CAROUSEL_ITEMS.map((item, itemIndex) => (
+              <div key={`logo-b-${repeatIndex}-${itemIndex}`} className="image-wrapper" aria-hidden="true">
+                <img
+                  decoding="async"
+                  src={item.src}
+                  alt="Logos Patrocinadores"
+                />
+                {item.links.map((sponsor, index) => (
+                  sponsor.link ? (
+                    <a
+                      key={`link-b-${repeatIndex}-${itemIndex}-${index}`}
+                      href={sponsor.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="sponsor-overlay-link"
+                      style={{
+                        top: sponsor.top,
+                        left: sponsor.left,
+                        width: sponsor.width,
+                        height: sponsor.height,
+                      }}
+                      tabIndex={-1}
+                    />
+                  ) : null
+                ))}
+              </div>
+            ))
           ))}
         </div>
       </section>
@@ -132,12 +190,8 @@ const Partners = () => {
   );
 };
 
-/* ─────────────────────────────────────────────────────────
- * Helper: dynamically load an external script
- * ────────────────────────────────────────────────────────── */
 function loadScript(src: string): Promise<void> {
   return new Promise((resolve, reject) => {
-    /* Skip if already loaded */
     if (document.querySelector(`script[src="${src}"]`)) {
       resolve();
       return;
@@ -152,11 +206,7 @@ function loadScript(src: string): Promise<void> {
   });
 }
 
-/* ─────────────────────────────────────────────────────────
- * Scoped CSS — exact replica of the Dunamis HTML source
- * ────────────────────────────────────────────────────────── */
 const PARTNERS_STYLES = `
-  /* ── Section wrapper ── */
   .partners-section {
     display: flex;
     flex-direction: column;
@@ -172,8 +222,6 @@ const PARTNERS_STYLES = `
   .partners-spacer {
     height: 40px;
   }
-
-  /* ── "CONECTE-SE" title ── */
 
   .pw6-section {
     display: flex;
@@ -225,9 +273,6 @@ const PARTNERS_STYLES = `
     margin-right: -0.1rem;
   }
 
-
-
-  /* ── "Conheça nossos braços." subtitle ── */
   .texto-bracos {
     font-family: var(--font-blauer), sans-serif;
     font-size: clamp(1rem, 2.5vw, 1.5rem);
@@ -249,7 +294,6 @@ const PARTNERS_STYLES = `
     will-change: opacity, filter, transform;
   }
 
-  /* ── Infinite logo carousel ── */
   .carrossel-infinito {
     width: 100%;
     display: flex;
@@ -260,20 +304,43 @@ const PARTNERS_STYLES = `
 
   .carrossel-track {
     display: flex;
-    padding: 0 2rem;
+    padding: 0;
     flex-wrap: nowrap;
     width: max-content;
-    gap: 0.9rem;
-    animation: scroll-left 150s linear infinite;
+    gap: 0.5rem;
+    align-items: center;
+    animation: scroll-left 50s linear infinite;
     will-change: transform;
   }
 
-  .carrossel-track img {
+  .carrossel-track:hover {
+    animation-play-state: paused;
+  }
+
+  .image-wrapper {
+    position: relative;
+    flex-shrink: 0;
+    display: flex;
     height: 300px;
+  }
+
+  .image-wrapper img {
+    height: 100%;
+    width: auto;
     object-fit: contain;
     user-select: none;
-    pointer-events: none;
-    flex-shrink: 0;
+    display: block;
+  }
+
+  .sponsor-overlay-link {
+    position: absolute;
+    display: block;
+    z-index: 10;
+  }
+
+  .sponsor-overlay-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
   }
 
   @keyframes scroll-left {
@@ -285,20 +352,18 @@ const PARTNERS_STYLES = `
     }
   }
 
-  /* ── Responsive ── */
   @media (max-width: 1024px) {
-    .carrossel-track img {
+    .image-wrapper {
       height: 240px;
     }
   }
 
   @media (max-width: 640px) {
-    .carrossel-track img {
+    .image-wrapper {
       height: 180px;
     }
   }
 
-  /* ── Accessibility: reduce motion ── */
   @media (prefers-reduced-motion: reduce) {
     .carrossel-track {
       animation: none;
@@ -306,7 +371,6 @@ const PARTNERS_STYLES = `
     }
   }
 
-  /* ── CTA Button ── */
   .partners-cta-wrapper {
     display: flex;
     justify-content: center;

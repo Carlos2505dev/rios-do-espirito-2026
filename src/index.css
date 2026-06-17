@@ -91,11 +91,13 @@
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 100px;
+    overflow-x: hidden;
   }
 
   body {
     @apply bg-[#F5F9FF] text-rvl-escuro;
     font-family: "Blauer Neue", sans-serif;
+    overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {

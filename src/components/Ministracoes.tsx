@@ -80,13 +80,11 @@ const Ministracoes = () => {
                       <img src={item.photo} alt={item.speaker} className="minister-photo" style={{ objectPosition: item.photoPosition }} />
                     </div>
                     <div className="front-content">
-                      <h3 style={{ fontFamily: 'var(--font-aeonik)', fontSize: '1.25rem', fontWeight: 700, marginBottom: '0.25rem' }}>{item.title}</h3>
-                      <p style={{ color: 'var(--color-rvl-laranja)', fontFamily: 'var(--font-aeonik)', fontWeight: 500, fontSize: '0.875rem' }}>{item.speaker}</p>
+                      <p style={{ color: '#ffaa66', fontFamily: 'var(--font-aeonik)', fontWeight: 600, fontSize: '1.25rem' }}>{item.speaker}</p>
                     </div>
                   </div>
                   <div className="flip-card-back">
                     <div className="back-content">
-                      <h3 style={{ fontFamily: 'var(--font-aeonik)', fontSize: '1.25rem', fontWeight: 700, marginBottom: '0.5rem', color: 'var(--color-rvl-laranja)' }}>{item.title}</h3>
                       <Button
                         href="#"
                         className="shadow-[0_4px_24px_rgba(245,130,58,0.35)]"
