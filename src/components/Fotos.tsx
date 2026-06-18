@@ -1,5 +1,4 @@
 import { Images } from 'lucide-react';
-import { Button } from './ui/button';
 
 const Fotos = () => {
   const fotos = [
