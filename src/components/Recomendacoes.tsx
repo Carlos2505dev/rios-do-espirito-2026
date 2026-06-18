@@ -92,7 +92,7 @@ const Recomendacoes = () => {
                 className="flex items-center justify-center gap-2 py-3 px-6 bg-white/10 hover:bg-white/20 border border-white/20 rounded-xl font-aeonik uppercase text-sm tracking-wide text-white transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white/50"
               >
                 <FaInstagram size={16} />
-                @verbodavidacabula
+                @verbocabula
               </a>
               <a
                 href="https://www.instagram.com/riosdoespirito/"

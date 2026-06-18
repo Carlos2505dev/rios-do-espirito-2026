@@ -8,31 +8,47 @@ const Ministracoes = () => {
       title: "Profundidade",
       speaker: "Davi Silva",
       photo: "/assets/Ministros/davi.webp",
-      photoPosition: "center 15%"
+      photoPosition: "center 15%",
+      links: [
+        { label: "Assistir Ministração", url: "https://www.youtube.com/live/VE8whkTFW34?si=pL5MGc22Ih345g5h" }
+      ]
     },
     {
       title: "O Fluir do Espírito",
       speaker: "Pr. Emerson Miranda",
       photo: "/assets/Ministros/emerson.webp",
-      photoPosition: "center 40%"
+      photoPosition: "center 40%",
+      links: [
+        { label: "Assistir Ministração", url: "https://www.youtube.com/live/VE8whkTFW34?si=pL5MGc22Ih345g5h" }
+      ]
     },
     {
       title: "Rios de Cura",
       speaker: "Vânia Nascimento",
       photo: "/assets/Ministros/vania.webp",
-      photoPosition: "center 30%"
+      photoPosition: "center 30%",
+      links: [
+        { label: "Assistir Ministração", url: "https://www.youtube.com/live/fwDqzGnmqLI?si=VVDUAbvSdF04sRSo" }
+      ]
     },
     {
       title: "Águas Vivas",
       speaker: "Cynthia Miranda",
       photo: "/assets/Ministros/cynthia.webp",
-      photoPosition: "center 25%"
+      photoPosition: "center 25%",
+      links: [
+        { label: "Assistir Ministração 19/06", url: "https://www.youtube.com/live/fwDqzGnmqLI?si=P9KpjhQXGRa141gS" },
+        { label: "Assistir Ministração 20/06", url: "https://www.youtube.com/live/eySaKGQjXd4?si=aQebVE8C0o3IA--c" }
+      ]
     },
     {
       title: "Fogo do Avivamento",
       speaker: "Pr. Gian Santos",
       photo: "/assets/Ministros/gian.webp",
-      photoPosition: "center 55%"
+      photoPosition: "center 55%",
+      links: [
+        { label: "Assistir Ministração", url: "https://www.youtube.com/live/NaAesoPPqK0?si=LE245fhtitrKH3SL" }
+      ]
     }
   ];
 
@@ -85,15 +101,20 @@ const Ministracoes = () => {
                   </div>
                   <div className="flip-card-back">
                     <div className="back-content">
-                      <Button
-                        href="https://www.youtube.com/playlist?list=PL-DZoCPmXBlddz8y_opgc0mbiW5ttHJFG"
-                        className="shadow-[0_4px_24px_rgba(245,130,58,0.35)]"
-                        boxClassName="!p-1"
-                        buttonClassName="!py-2 !px-4 !text-xs !font-bold uppercase tracking-wide"
-                        fullWidth={false}
-                      >
-                        Assistir Ministração
-                      </Button>
+                      <div className="flex flex-col gap-3">
+                        {item.links.map((link, linkIndex) => (
+                          <Button
+                            key={linkIndex}
+                            href={link.url}
+                            className="shadow-[0_4px_24px_rgba(245,130,58,0.35)]"
+                            boxClassName="!p-1"
+                            buttonClassName="!py-2 !px-4 !text-xs !font-bold uppercase tracking-wide"
+                            fullWidth={false}
+                          >
+                            {link.label}
+                          </Button>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>

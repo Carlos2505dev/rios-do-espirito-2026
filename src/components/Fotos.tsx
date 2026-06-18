@@ -124,8 +124,12 @@ const Fotos = () => {
                     <Images className="w-5 h-5 text-rvl-laranja" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-[10px] text-rvl-laranja font-bold uppercase tracking-wider mb-0.5">
-                      {card.label}
+                    <p className="text-[10px] text-rvl-laranja font-bold uppercase tracking-wider mb-0.5 flex items-center gap-1.5">
+                      <span>{card.label.split(' · ')[0]}</span>
+                      {card.label.includes(' · ') && (
+                        <span className="w-1 h-1 rounded-full bg-rvl-laranja opacity-80 mt-[1px]"></span>
+                      )}
+                      <span>{card.label.split(' · ')[1]}</span>
                     </p>
                     <h3 style={{ fontFamily: 'var(--font-aeonik)' }} className="text-rvl-creme text-xl tracking-wide leading-tight font-bold uppercase">
                       {card.title}

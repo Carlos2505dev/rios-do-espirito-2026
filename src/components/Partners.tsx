@@ -53,6 +53,27 @@ const CAROUSEL_ITEMS = [
 
 const SUBTITLE_WORDS = ['Conheça', 'nossos', 'parceiros.'] as const;
 
+const handleInstagramClick = (e: React.MouseEvent<HTMLAnchorElement>, link: string) => {
+  if (!link) return;
+  
+  const isAndroid = /android/i.test(navigator.userAgent || navigator.vendor || (window as any).opera);
+  const isIOS = /iPad|iPhone|iPod/i.test(navigator.userAgent || navigator.vendor || (window as any).opera);
+  
+  if (isAndroid || isIOS) {
+    e.preventDefault();
+    const username = link.replace('https://instagram.com/', '').replace('/', '');
+    
+    if (isAndroid) {
+      window.location.href = `intent://instagram.com/_u/${username}/#Intent;package=com.instagram.android;scheme=https;end`;
+    } else if (isIOS) {
+      window.location.href = `instagram://user?username=${username}`;
+      setTimeout(() => {
+        window.location.href = `https://www.instagram.com/${username}`;
+      }, 2000);
+    }
+  }
+};
+
 const Partners = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const subtitleSpansRef = useRef<(HTMLSpanElement | null)[]>([]);
@@ -156,6 +177,7 @@ const Partners = () => {
                         height: sponsor.height,
                       }}
                       aria-label="Acessar instagram do patrocinador"
+                      onClick={(e) => handleInstagramClick(e, sponsor.link!)}
                     />
                   ) : null
                 ))}
@@ -186,6 +208,7 @@ const Partners = () => {
                         height: sponsor.height,
                       }}
                       tabIndex={-1}
+                      onClick={(e) => handleInstagramClick(e, sponsor.link!)}
                     />
                   ) : null
                 ))}
@@ -331,8 +354,10 @@ const PARTNERS_STYLES = `
     will-change: transform;
   }
 
-  .carrossel-track:hover {
-    animation-play-state: paused;
+  @media (hover: hover) {
+    .carrossel-track:hover {
+      animation-play-state: paused;
+    }
   }
 
   .image-wrapper {
