@@ -6,6 +6,8 @@ import { CustomCursor } from './components/CustomCursor';
 import { LoadingSpinner } from './components/ui/LoadingSpinner';
 import Fotos from './components/Fotos';
 
+const GrupoOficial = lazy(() => import('./components/GrupoOficial'));
+
 const Ministracoes = lazy(() => import('./components/Ministracoes'));
 const Avaliacao = lazy(() => import('./components/Avaliacao'));
 const Playlist = lazy(() => import('./components/Playlist'));
@@ -22,6 +24,9 @@ const Home = () => {
       <main className="main">
         <Hero />
         <div className="homeMain">
+          <Suspense fallback={<div className="h-32" />}>
+            <GrupoOficial />
+          </Suspense>
           <Suspense fallback={<div className="h-32" />}>
             <Fotos />
           </Suspense>

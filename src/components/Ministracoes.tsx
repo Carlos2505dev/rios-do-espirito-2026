@@ -47,11 +47,11 @@ const Ministracoes = () => {
           <p style={{ fontFamily: 'var(--font-blauer)', color: 'hsl(40 42% 90% / 0.7)', maxWidth: '42rem', margin: '0 auto 1.5rem', fontSize: '1.125rem' }}>
             Palavras que marcaram a nossa conferência. <strong>Clique, assista e ouça</strong> novamente as mensagens completas.
           </p>
-          <div style={{ 
-            maxWidth: '42rem', 
-            margin: '0 auto', 
-            padding: '1rem 1.25rem', 
-            backgroundColor: 'rgba(245, 130, 58, 0.1)', 
+          <div style={{
+            maxWidth: '42rem',
+            margin: '0 auto',
+            padding: '1rem 1.25rem',
+            backgroundColor: 'rgba(245, 130, 58, 0.1)',
             border: '2px solid var(--color-rvl-laranja)',
             borderRadius: '0.5rem',
             fontFamily: 'var(--font-aeonik)',
@@ -86,7 +86,7 @@ const Ministracoes = () => {
                   <div className="flip-card-back">
                     <div className="back-content">
                       <Button
-                        href="#"
+                        href="https://www.youtube.com/playlist?list=PL-DZoCPmXBlddz8y_opgc0mbiW5ttHJFG"
                         className="shadow-[0_4px_24px_rgba(245,130,58,0.35)]"
                         boxClassName="!p-1"
                         buttonClassName="!py-2 !px-4 !text-xs !font-bold uppercase tracking-wide"
@@ -109,7 +109,7 @@ const Ministracoes = () => {
           </p>
           <Button
             href="/testemunhos"
-            className="shadow-[0_4px_24px_rgba(245,130,58,0.35)] flex items-center justify-center gap-2"
+            className="!w-auto !max-w-none shadow-[0_4px_24px_rgba(245,130,58,0.35)] flex items-center justify-center gap-2"
             boxClassName="!p-1.5"
             buttonClassName="!py-3 !px-8 !text-sm !font-bold uppercase tracking-wide flex items-center gap-2"
             fullWidth={false}
@@ -120,7 +120,8 @@ const Ministracoes = () => {
         </div>
       </div>
 
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         .flip-card-container {
           perspective: 1000px;
           height: 400px;

@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { FaInstagram } from 'react-icons/fa';
 
 const CAROUSEL_ITEMS = [
   {
@@ -19,7 +20,7 @@ const CAROUSEL_ITEMS = [
     ]
   },
   {
-    src: '/assets/Patrocinadores/Patrocinadores_1.png',
+    src: '/assets/Patrocinadores/Patrocinadores_1.webp',
     links: [
       // Linha de Cima
       { top: '0%', left: '0%', width: '20%', height: '50%', link: 'https://instagram.com/dolceamore_confeitaria' },
@@ -33,6 +34,19 @@ const CAROUSEL_ITEMS = [
       { top: '50%', left: '40%', width: '20%', height: '50%', link: 'https://instagram.com/inovetecch' },
       { top: '50%', left: '60%', width: '20%', height: '50%', link: 'https://instagram.com/dr.albernaz' },
       { top: '50%', left: '80%', width: '20%', height: '50%', link: 'https://instagram.com/paozinhodelicia_da_vilma' },
+    ]
+  },
+  {
+    src: '/assets/Patrocinadores/Patrocinadores_2.webp',
+    links: [
+      // Linha de Cima
+      { top: '0%', left: '0%', width: '33.33%', height: '50%', link: 'https://instagram.com/fotografiasvictormonteiro' },
+      { top: '0%', left: '33.33%', width: '33.33%', height: '50%', link: 'https://instagram.com/ilmacostaballet' },
+      { top: '0%', left: '66.66%', width: '33.33%', height: '50%', link: 'https://instagram.com/studionaiararocha' },
+      // Linha de Baixo
+      { top: '50%', left: '0%', width: '33.33%', height: '50%', link: 'https://instagram.com/fersanestetica' },
+      { top: '50%', left: '33.33%', width: '33.33%', height: '50%', link: 'https://instagram.com/gsburgeroficial' },
+      { top: '50%', left: '66.66%', width: '33.33%', height: '50%', link: 'https://instagram.com/artinbox_vidracaria' },
     ]
   }
 ];
@@ -181,7 +195,11 @@ const Partners = () => {
         </div>
       </section>
 
-      <div className="partners-spacer" />
+      {/* Aviso de redirecionamento ao Instagram */}
+      <p className="partners-instagram-hint">
+        <FaInstagram size={20} aria-hidden="true" />
+        Toque em <span style={{ fontWeight: 600 }}>qualquer parceiro</span> para conhecê-lo no Instagram
+      </p>
 
       <div className="partners-spacer" />
 
@@ -297,7 +315,7 @@ const PARTNERS_STYLES = `
   .carrossel-infinito {
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     overflow: hidden;
     background: transparent;
   }
@@ -309,7 +327,7 @@ const PARTNERS_STYLES = `
     width: max-content;
     gap: 0.5rem;
     align-items: center;
-    animation: scroll-left 50s linear infinite;
+    animation: scroll-left 25s linear infinite;
     will-change: transform;
   }
 
@@ -414,6 +432,27 @@ const PARTNERS_STYLES = `
 
   .partners-cta-text {
     white-space: nowrap;
+  }
+
+  .partners-instagram-hint {
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 2.5rem;
+    font-family: var(--font-blauer), sans-serif;
+    font-size: clamp(0.85rem, 2vw, 1.05rem);
+    color: rgba(242, 188, 121, 0.8);
+    letter-spacing: 0.02em;
+    text-align: center;
+    line-height: 1.6;
+    user-select: none;
+  }
+
+  .partners-instagram-hint svg {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 0.4rem;
+    flex-shrink: 0;
+    opacity: 0.7;
   }
 `;
 

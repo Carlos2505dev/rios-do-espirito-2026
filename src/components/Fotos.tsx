@@ -87,16 +87,66 @@ const Fotos = () => {
               Reviva os melhores momentos da nossa conferência. Clique no botão abaixo para acessar o álbum completo, baixar seus registros e relembrar o que vivemos.
             </p>
 
-            <Button
-              href="#"
-              className="shadow-[0_4px_24px_rgba(245,130,58,0.35)] flex items-center justify-center gap-2"
-              boxClassName="!p-1.5"
-              buttonClassName="!py-3 !px-8 !text-sm !font-bold uppercase tracking-wide flex items-center gap-2"
-              fullWidth={false}
-            >
-              <Images size={18} />
-              Acessar Álbum de Fotos
-            </Button>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-4xl mx-auto mt-4 text-left">
+              {[
+                {
+                  href: "#",
+                  label: "DIA 01 · NOITE",
+                  title: "SEXTA-FEIRA",
+                  subtitle: "Noite de abertura — 08 de Maio"
+                },
+                {
+                  href: "#",
+                  label: "DIA 02 · MANHÃ",
+                  title: "SÁBADO DE MANHÃ",
+                  subtitle: "09 de Maio — Sessão da manhã"
+                },
+                {
+                  href: "#",
+                  label: "DIA 02 · TARDE",
+                  title: "SÁBADO À TARDE",
+                  subtitle: "09 de Maio — Sessão da tarde"
+                },
+                {
+                  href: "#",
+                  label: "DIA 02 · NOITE",
+                  title: "SÁBADO À NOITE",
+                  subtitle: "09 de Maio — Sessão de encerramento"
+                }
+              ].map((card, i) => (
+                <a
+                  key={i}
+                  href={card.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-5 bg-[#222222] hover:bg-[#2a2a2a] border border-white/10 hover:border-rvl-laranja/30 rounded-2xl p-6 transition-all"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-rvl-laranja/10 group-hover:bg-rvl-laranja/20 flex items-center justify-center flex-shrink-0 transition-colors">
+                    <Images className="w-5 h-5 text-rvl-laranja" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-[10px] text-rvl-laranja font-bold uppercase tracking-wider mb-0.5">
+                      {card.label}
+                    </p>
+                    <h3 style={{ fontFamily: 'var(--font-aeonik)' }} className="text-rvl-creme text-xl tracking-wide leading-tight font-bold uppercase">
+                      {card.title}
+                    </h3>
+                    <p className="text-rvl-creme/50 text-xs mt-0.5">
+                      {card.subtitle}
+                    </p>
+                  </div>
+                  <svg
+                    className="w-4 h-4 text-rvl-creme/30 group-hover:text-rvl-laranja group-hover:translate-x-1 transition-all flex-shrink-0"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </a>
+              ))}
+            </div>
           </div>
         </div>
 
