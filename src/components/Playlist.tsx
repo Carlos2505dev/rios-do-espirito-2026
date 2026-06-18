@@ -47,7 +47,7 @@ const Playlist = () => {
 
           <div className="flex flex-row gap-4 justify-center w-full">
             <Button
-              href="#"
+              href="https://open.spotify.com/playlist/1bC7foYu8lnbuNuUdYMLHU?si=vPJY7TYXSwWvODADp53kYA&pi=QdY8p8ARSNKKr"
               className="shadow-[0_4px_24px_rgba(30,215,96,0.25)]"
               boxClassName="!p-1 !bg-gradient-to-r !from-[#1db954] !to-[#1ed760]"
               buttonClassName="!py-3 !px-6 !text-sm !font-bold uppercase tracking-wide flex items-center justify-center gap-2"
@@ -60,7 +60,7 @@ const Playlist = () => {
             </Button>
 
             <Button
-              href="#"
+              href="https://www.youtube.com/playlist?list=PLjUluegHkqWSFgBTVRmLQ4M8DHZ1QOTHM"
               className="shadow-[0_4px_24px_rgba(255,0,0,0.25)]"
               boxClassName="!p-1 !bg-gradient-to-r !from-[#ff0000] !to-[#ff3333]"
               buttonClassName="!py-3 !px-6 !text-sm !font-bold uppercase tracking-wide flex items-center justify-center gap-2"

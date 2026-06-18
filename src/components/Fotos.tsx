@@ -91,26 +91,26 @@ const Fotos = () => {
                 {
                   href: "#",
                   label: "DIA 01 · NOITE",
-                  title: "SEXTA-FEIRA",
-                  subtitle: "Noite de abertura — 08 de Maio"
-                },
-                {
-                  href: "#",
-                  label: "DIA 02 · MANHÃ",
-                  title: "SÁBADO DE MANHÃ",
-                  subtitle: "09 de Maio — Sessão da manhã"
-                },
-                {
-                  href: "#",
-                  label: "DIA 02 · TARDE",
-                  title: "SÁBADO À TARDE",
-                  subtitle: "09 de Maio — Sessão da tarde"
+                  title: "QUINTA-FEIRA",
+                  subtitle: "Noite de abertura — 18 de Junho"
                 },
                 {
                   href: "#",
                   label: "DIA 02 · NOITE",
+                  title: "SEXTA-FEIRA",
+                  subtitle: "19 de Junho"
+                },
+                {
+                  href: "#",
+                  label: "DIA 03 · MANHÃ",
+                  title: "SÁBADO À TARDE",
+                  subtitle: "20 de Junho"
+                },
+                {
+                  href: "#",
+                  label: "DIA 03 · NOITE",
                   title: "SÁBADO À NOITE",
-                  subtitle: "09 de Maio — Sessão de encerramento"
+                  subtitle: "Noite de Encerramento — 20 de Junho"
                 }
               ].map((card, i) => (
                 <a
