@@ -55,14 +55,14 @@ const SUBTITLE_WORDS = ['Conheça', 'nossos', 'parceiros.'] as const;
 
 const handleInstagramClick = (e: React.MouseEvent<HTMLAnchorElement>, link: string) => {
   if (!link) return;
-  
+
   const isAndroid = /android/i.test(navigator.userAgent || navigator.vendor || (window as any).opera);
   const isIOS = /iPad|iPhone|iPod/i.test(navigator.userAgent || navigator.vendor || (window as any).opera);
-  
+
   if (isAndroid || isIOS) {
     e.preventDefault();
     const username = link.replace('https://instagram.com/', '').replace('/', '');
-    
+
     if (isAndroid) {
       window.location.href = `intent://instagram.com/_u/${username}/#Intent;package=com.instagram.android;scheme=https;end`;
     } else if (isIOS) {
@@ -154,66 +154,33 @@ const Partners = () => {
 
       <section className="carrossel-infinito" aria-label="Logomarcas dos parceiros">
         <div className="carrossel-track">
-          {Array.from({ length: 4 }).map((_, repeatIndex) => (
-            CAROUSEL_ITEMS.map((item, itemIndex) => (
-              <div key={`logo-a-${repeatIndex}-${itemIndex}`} className="image-wrapper">
-                <img
-                  decoding="async"
-                  src={item.src}
-                  alt="Logos Patrocinadores"
-                />
-                {item.links.map((sponsor, index) => (
-                  sponsor.link ? (
-                    <a
-                      key={`link-a-${repeatIndex}-${itemIndex}-${index}`}
-                      href={sponsor.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="sponsor-overlay-link"
-                      style={{
-                        top: sponsor.top,
-                        left: sponsor.left,
-                        width: sponsor.width,
-                        height: sponsor.height,
-                      }}
-                      aria-label="Acessar instagram do patrocinador"
-                      onClick={(e) => handleInstagramClick(e, sponsor.link!)}
-                    />
-                  ) : null
-                ))}
-              </div>
-            ))
-          ))}
-
-          {Array.from({ length: 4 }).map((_, repeatIndex) => (
-            CAROUSEL_ITEMS.map((item, itemIndex) => (
-              <div key={`logo-b-${repeatIndex}-${itemIndex}`} className="image-wrapper" aria-hidden="true">
-                <img
-                  decoding="async"
-                  src={item.src}
-                  alt="Logos Patrocinadores"
-                />
-                {item.links.map((sponsor, index) => (
-                  sponsor.link ? (
-                    <a
-                      key={`link-b-${repeatIndex}-${itemIndex}-${index}`}
-                      href={sponsor.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="sponsor-overlay-link"
-                      style={{
-                        top: sponsor.top,
-                        left: sponsor.left,
-                        width: sponsor.width,
-                        height: sponsor.height,
-                      }}
-                      tabIndex={-1}
-                      onClick={(e) => handleInstagramClick(e, sponsor.link!)}
-                    />
-                  ) : null
-                ))}
-              </div>
-            ))
+          {CAROUSEL_ITEMS.map((item, itemIndex) => (
+            <div key={`logo-${itemIndex}`} className="image-wrapper">
+              <img
+                decoding="async"
+                src={item.src}
+                alt="Logos Patrocinadores"
+              />
+              {item.links.map((sponsor, index) => (
+                sponsor.link ? (
+                  <a
+                    key={`link-${itemIndex}-${index}`}
+                    href={sponsor.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="sponsor-overlay-link"
+                    style={{
+                      top: sponsor.top,
+                      left: sponsor.left,
+                      width: sponsor.width,
+                      height: sponsor.height,
+                    }}
+                    aria-label="Acessar instagram do patrocinador"
+                    onClick={(e) => handleInstagramClick(e, sponsor.link!)}
+                  />
+                ) : null
+              ))}
+            </div>
           ))}
         </div>
       </section>
@@ -221,7 +188,7 @@ const Partners = () => {
       {/* Aviso de redirecionamento ao Instagram */}
       <p className="partners-instagram-hint">
         <FaInstagram size={20} aria-hidden="true" />
-        Toque em <span style={{ fontWeight: 600 }}>qualquer parceiro</span> para conhecê-lo no Instagram
+        Arraste para o lado e toque em <span style={{ fontWeight: 600 }}>qualquer parceiro</span> para conhecê-lo no Instagram
       </p>
 
       <div className="partners-spacer" />
@@ -339,8 +306,16 @@ const PARTNERS_STYLES = `
     width: 100%;
     display: flex;
     justify-content: flex-start;
-    overflow: hidden;
+    overflow-x: auto;
+    overflow-y: hidden;
     background: transparent;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .carrossel-infinito::-webkit-scrollbar {
+    display: none;
   }
 
   .carrossel-track {
@@ -350,14 +325,6 @@ const PARTNERS_STYLES = `
     width: max-content;
     gap: 0.5rem;
     align-items: center;
-    animation: scroll-left 25s linear infinite;
-    will-change: transform;
-  }
-
-  @media (hover: hover) {
-    .carrossel-track:hover {
-      animation-play-state: paused;
-    }
   }
 
   .image-wrapper {
@@ -386,15 +353,6 @@ const PARTNERS_STYLES = `
     border-radius: 12px;
   }
 
-  @keyframes scroll-left {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
-  }
-
   @media (max-width: 1024px) {
     .image-wrapper {
       height: 240px;
@@ -404,13 +362,6 @@ const PARTNERS_STYLES = `
   @media (max-width: 640px) {
     .image-wrapper {
       height: 180px;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .carrossel-track {
-      animation: none;
-      transform: none;
     }
   }
 
