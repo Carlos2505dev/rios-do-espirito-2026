@@ -89,13 +89,13 @@ const Fotos = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-4xl mx-auto mt-4 text-left">
               {[
                 {
-                  href: "#",
+                  href: "https://drive.google.com/drive/folders/14vHqkV9IlmuVTG0H4Rb1dr7SJp_wvuKV",
                   label: "DIA 01 · NOITE",
                   title: "QUINTA-FEIRA",
                   subtitle: "Noite de abertura — 18 de Junho"
                 },
                 {
-                  href: "#",
+                  href: "https://drive.google.com/drive/folders/1zCRkmVcbJel_Tqy4NrYHW3MYW_7fTAe1",
                   label: "DIA 02 · NOITE",
                   title: "SEXTA-FEIRA",
                   subtitle: "19 de Junho"
