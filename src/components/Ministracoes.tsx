@@ -10,7 +10,7 @@ const Ministracoes = () => {
       photo: "/assets/Ministros/davi.webp",
       photoPosition: "center 15%",
       links: [
-        { label: "Assistir Ministração", url: "https://www.youtube.com/live/VE8whkTFW34?si=pL5MGc22Ih345g5h" }
+        { label: "Assistir Ministração", url: "https://www.youtube.com/live/v9HZJ42yZVA?si=HeDAUDRARi9jxUdw" }
       ]
     },
     {
@@ -19,7 +19,7 @@ const Ministracoes = () => {
       photo: "/assets/Ministros/emerson.webp",
       photoPosition: "center 40%",
       links: [
-        { label: "Assistir Ministração", url: "https://www.youtube.com/live/VE8whkTFW34?si=pL5MGc22Ih345g5h" }
+        { label: "Assistir Ministração", url: "https://www.youtube.com/live/v9HZJ42yZVA?si=HeDAUDRARi9jxUdw" }
       ]
     },
     {
