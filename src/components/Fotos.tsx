@@ -101,13 +101,13 @@ const Fotos = () => {
                   subtitle: "19 de Junho"
                 },
                 {
-                  href: "#",
+                  href: "https://drive.google.com/drive/folders/13KcSoK5TfR8GAQVdd0vDWx3culq2wOY_",
                   label: "DIA 03 · MANHÃ",
                   title: "SÁBADO À TARDE",
                   subtitle: "20 de Junho"
                 },
                 {
-                  href: "#",
+                  href: "https://drive.google.com/drive/folders/1d3hbSsaL0xw4b15h6C9w92UF5iGej9S3",
                   label: "DIA 03 · NOITE",
                   title: "SÁBADO À NOITE",
                   subtitle: "Noite de Encerramento — 20 de Junho"
