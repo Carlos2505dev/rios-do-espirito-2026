@@ -6,11 +6,6 @@ import './feedbacks.css';
 
 const Footer = lazy(() => import('../components/Footer'));
 
-const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-if (publicKey) {
-    emailjs.init(publicKey);
-}
-
 interface CustomSelectProps {
     label: string;
     options: string[];
@@ -123,10 +118,10 @@ const FeedbackPage = () => {
             const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_FEEDBACK_ID;
             const publicKeyEnv = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
-            console.log('EmailJS Config:', { serviceId, templateId, publicKeyEnv });
+            console.log('EmailJS Config (Feedbacks):', { serviceId, templateId, publicKeyEnv });
 
             if (!serviceId || !templateId || !publicKeyEnv) {
-                console.error('EmailJS credentials missing. Please check your .env file.');
+                console.error('EmailJS credentials missing. Please check your .env file or production environment variables.');
                 console.error('Values:', { serviceId, templateId, publicKeyEnv });
                 alert('Erro na configuração do envio. Por favor, tente novamente mais tarde.');
                 setIsLoading(false);
@@ -136,7 +131,8 @@ const FeedbackPage = () => {
             await emailjs.send(
                 serviceId,
                 templateId,
-                templateParams
+                templateParams,
+                publicKeyEnv
             );
 
             setIsSuccess(true);
