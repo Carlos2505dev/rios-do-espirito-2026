@@ -1,313 +1,514 @@
-<<<<<<< HEAD
-# Landing Page - Conferência Rios do Espírito 🌊
+<p align="center"><a href="https://github.com/Carlos2505dev/rios-do-espirito-2026" target="_blank"><img src="./public/assets/Logo CRE Branco.svg" width="420" alt="Rios do Espírito Logo" style="background:#0c1e3d;border-radius:14px;padding:24px 28px"></a></p>
 
-> **Uma landing page moderna, responsiva e de alta conversão para a conferência Rios do Espírito. Projetada para informar, engajar e converter visitantes em participantes.**
+<p align="center">
+<a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License"></a>
+<a href="https://github.com/Carlos2505dev/rios-do-espirito-2026"><img src="https://img.shields.io/badge/Status-%20Produ%C3%A7%C3%A3o-brightgreen" alt="Produção"></a>
+<a href="https://github.com/Carlos2505dev/rios-do-espirito-2026"><img src="https://img.shields.io/badge/Deploy-Vercel-44526c?logo=vercel&logoColor=white" alt="Deploy"></a>
+</p>
 
----
+<p align="center">
+<a href="https://skillicons.dev">
+  <img src="https://skillicons.dev/icons?i=vite,react,ts,tailwind,git,github,vercel,vscode&theme=light" />
+</a>
+</p>
 
-![Rios do Espírito - Landing Page](public/assets/hero_section.jpg)
+## Sobre o Projeto
 
-*Uma plataforma digital completa que apresenta, promove e vende a experiência Rios do Espírito*
+**Um espaço exclusivo para quem viveu a conferência.**
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-![Deploy](https://img.shields.io/badge/Deploy-Vercel-44526c?style=for-the-badge&logo=vercel&logoColor=white)
-![Build](https://img.shields.io/badge/Build-Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+A Conferência Rios do Espírito (CRE'26) aconteceu entre os dias 18 e 20 de junho de 2026, no Verbo da Vida Cabula, em Salvador/BA. Este site foi construído para os **participantes** do evento: um portal pós-conferência onde tudo o que foi vivido continua acessível: ministrações, fotos, playlists e memórias.
 
-**Visite:** [Rios do Espírito](https://conferenciariosdoespirito.vercel.app/) | Adquira ingressos e participe desta jornada
+O acesso é **pessoal e intransferível**: o link da página é compartilhado apenas com quem esteve conosco, e os conteúdos disponibilizados aqui (em especial os vídeos das ministrações) são de uso exclusivo dos participantes. Por isso, o site pede que os links **não sejam repassados**: o que você pode e deve compartilhar são as suas fotos, com a hashtag **#CRE2026**.
 
----
+Construído com React, TypeScript e Tailwind CSS, o portal combina animações imersivas (GSAP + Framer Motion), carregamento sob demanda das seções e dois formulários integrados (avaliação da conferência e envio de testemunhos), tudo otimizado para performance e para a experiência móvel, já que a maior parte do público acessa pelo celular.
 
-## 🎯 O que é o Projeto?
+## ✨ O que o Projeto faz
 
-A **landing page oficial** da conferência Rios do Espírito é um projeto web completo que funciona como:
+O portal hoje:
 
-📍 **Hub Central**: Único ponto de referência para tudo sobre a conferência  
-🎫 **E-commerce**: Plataforma de vendas de ingressos integrada e segura  
-📱 **Experiência Imersiva**: Design responsivo e intuitivo que funciona perfeitamente em todos os dispositivos  
-📊 **Ferramenta de Marketing**: Captura leads, rastreia comportamento e otimiza conversão  
-🔄 **Comunicação**: Mantém participantes informados sobre agenda, ministros e atualizações  
-💡 **Profissionalismo**: Transmite credibilidade e qualidade do evento  
+| Recurso                           | O que resolve                                    | Status                |
+| --------------------------------- | ------------------------------------------------ | --------------------- |
+| **Hero de boas-vindas**           | Recebe o participante com a identidade do evento | ✅ Pronto              |
+| **Grupo Oficial**                 | Convite para o grupo de WhatsApp da conferência  | ✅ Pronto              |
+| **Galeria Memórias CRE'26**       | Álbuns de fotos por dia (Google Drive) + marquee | ✅ Pronto              |
+| **Ministrações**                  | Vídeos exclusivos das mensagens da conferência   | ✅ Pronto              |
+| **Playlist O Som do Rio**         | Louvores do evento no Spotify e YouTube          | ✅ Pronto              |
+| **Parceiros**                     | Carrossel de patrocinadores com links (Instagram)| ✅ Pronto              |
+| **Recomendações**                 | Incentivo a compartilhar fotos com a #CRE2026    | ✅ Pronto              |
+| **Avaliação da Conferência**      | Formulário de feedback enviado por EmailJS       | ✅ Pronto              |
+| **Envio de Testemunhos**          | Formulário com autorização de uso via EmailJS    | ✅ Pronto              |
+| **Animações GSAP + Framer Motion**| Experiência imersiva e envolvente                | ✅ Pronto              |
 
----
+<details>
+<summary><strong>📋 Ver todos os recursos</strong></summary>
 
-## 💡 Por que a Landing Page?
+### Seções da Home
 
-A landing page foi desenvolvida para ser a **porta digital** da conferência Rios do Espírito, resolvendo desafios críticos:
+* Hero com logo, boas-vindas e mensagem de propósito do portal
+* Seção do Grupo Oficial com botão de entrada no WhatsApp
+* Galeria com os álbuns de fotos de cada dia (Drive) e carrossel de imagens
+* Cards de ministrações com foto do ministro e flip para assistir o vídeo
+* Aviso de exclusividade sobre os links das ministrações
+* CTA para envio de testemunho
+* Seção de avaliação da conferência (formulário)
+* Playlist oficial com acesso direto a Spotify e YouTube
+* Carrossel infinito de parceiros com links diretos para o Instagram
+* Seção "Espalhe as Águas" com hashtag #CRE2026 e perfis para seguir
 
-### Problema
-Promover um evento sem plataforma digital moderna é:
-- Difícil transmitir profissionalismo e credibilidade
-- Impossível gerenciar vendas de forma centralizada e segura
-- Complexo manter participantes informados
-- Ineficiente rastrear interesse e otimizar conversão
-- Arriscado não ter presença profissional online
+### Formulários
 
-### Solução: A Landing Page
-- **Presença profissional**: Transmite qualidade, organização e credibilidade instantaneamente
-- **Vendas centralizadas**: Sistema de ingressos integrado, seguro e fácil de usar
-- **Informação estratégica**: Tudo organizado e acessível: agenda, ministros, FAQ, mapa, contato
-- **Engajamento Visual**: Design imersivo com animações, fotos e testimonials que inspiram
-- **Data-Driven**: Analytics integrado para rastrear interesse e otimizar futuros eventos
+* `/feedback`: avaliação da estrutura, organização e experiência geral (pode ser anônimo)
+* `/testemunhos`: relato da experiência com orientações por etapas e autorização de uso
+* Envio via EmailJS com template dedicado para cada formulário
+* Validação de campos obrigatórios e estado de sucesso com animação
 
----
+### Técnica
 
-## ⚙️ Stack Tecnológica
+* SPA com React Router (`/`, `/feedback`, `/testemunhos`)
+* Lazy loading com Suspense: seções e páginas carregam sob demanda
+* Animações com GSAP (parallax e revelação de textos) e Framer Motion (entradas e formulários)
+* Borda "elétrica" em canvas para os cards de ministrações
+* Cursor customizado com suavização (lerp) e estado de hover
+* Header com transição transparente → sólida conforme o scroll
+* Fontes próprias: Aeonik, Blauer Neue, Quentin, Teenage Dreams e Antarctican Mono
 
-A landing page foi construída com as **tecnologias mais modernas da web** para garantir performance, escalabilidade e experiência de usuário excepcional:
+</details>
 
-| Camada | Tecnologias |
-|--------|-------------|
-| **Build & Development** | <img width="40" src="https://skillicons.dev/icons?i=vite" alt="Vite" title="Vite"/> Vite – Builds 10x mais rápidos com HMR instantâneo |
-| **Frontend Framework** | <img width="40" src="https://skillicons.dev/icons?i=react" alt="React" title="React"/> React 19 – Interface reativa otimizada |
-| **Linguagem** | <img width="40" src="https://skillicons.dev/icons?i=ts" alt="TypeScript" title="TypeScript"/> TypeScript – Tipagem estática e segurança |
-| **Estilização** | <img width="40" src="https://skillicons.dev/icons?i=tailwindcss" alt="Tailwind CSS" title="Tailwind CSS"/> Tailwind CSS v4 – Design system responsivo |
-| **Animações** | **Framer Motion** + **GSAP** – Transições fluidas e impactantes |
-| **Ícones** | <img width="40" src="https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/lucide.png" alt="Lucide" title="Lucide"/> Lucide React & React Icons – Biblioteca completa |
-| **Interatividade** | **Canvas Confetti** – Efeitos visuais de engajamento |
-| **Mapa** | **Leaflet + React Leaflet** – Integração de localização do evento |
-| **Deploy** | ![Vercel](https://img.shields.io/badge/Vercel-000?style=flat&logo=vercel&logoColor=white) Vercel – Infraestrutura global |
-
-### 🛠️ Decisões Técnicas
-
-- **Vite + React**: Build system 10x mais rápido que alternativas, essencial para landing pages de alta performance
-- **Lazy Loading**: Componentes críticos carregam primeiro, resto sob demanda para otimizar FCP e LCP
-- **TypeScript**: Tipagem rigorosa especialmente importante em manipulação de dados de ingresso e APIs
-- **Tailwind CSS**: Abordagem utilitária escalável que mantém CSS bundle mínimo na produção
-
----
-
-## 🚀 Quick Start
+## 📦 Instalação
 
 ### Pré-requisitos
 
-- Node.js v18+
-- npm, yarn ou bun
-- Git
+```text
+Node.js >= 18
+npm, yarn ou bun
+```
 
-### Instalação e Desenvolvimento
+### Instalação
 
 ```bash
-# Clonar o repositório
-git clone https://github.com/Carlos2505dev/rios-do-espirito-lp.git
-cd rios-do-espirito
+git clone https://github.com/Carlos2505dev/rios-do-espirito-2026.git
 
-# Instalar as dependências
+cd site-participantes
+
 npm install
+# ou
+bun install
 
-# Iniciar o servidor de desenvolvimento (HMR ativado)
 npm run dev
 ```
 
-### Build para Produção
+O servidor de desenvolvimento abre automaticamente no navegador em:
 
-```bash
-# Criar build otimizada
-npm run build
-
-# Preview da versão de produção localmente
-npm run preview
-
-# Fazer deploy automático via Vercel
+```text
+http://localhost:3100
 ```
 
----
+### Variáveis de ambiente
 
-## 🎨 Funcionalidades da Landing Page
+Copie o arquivo `.env` (ou crie um novo) com as credenciais do EmailJS, necessárias para o envio dos formulários:
 
-### 🎤 Seção Hero + LineUp
-
-Primeira impressão impactante com:
-- Banner de alta qualidade com imagem/vídeo do evento
-- Destaque dos ministros principais
-- Chamada para ação (CTA) estratégica acima da dobra
-- Tagline e propósito da conferência
-
-### 👥 Galeria Completa de Ministros
-
-Apresenta todos os palestrantes com:
-- Fotos profissionais de alta qualidade
-- Biografia e descrição do ministério
-- Horários de apresentação
-- Links para redes sociais e contato
-
-### 📅 Timeline de Programação
-
-Visualização clara da agenda com:
-- Timeline interativa por dia/horários
-- Descrição de cada atividade
-- Local e duração de cada sessão
-- Destaque de atividades principais
-
-### 🎟️ Sistema de Compra de Ingressos
-
-E-commerce integrado com:
-- Múltiplas categorias de ingresso (Camarote, Setores, Meia-entrada)
-- Visualização em tempo real de disponibilidade
-- Carrinho de compras e checkout seguro
-- Download automático de e-ticket
-- Confirmação por email com QR code
-
-### 📍 Mapa Interativo
-
-Localização e logística:
-- Mapa em tempo real com endereço do venue
-- Informações de estacionamento
-- Rotas de transporte público e privado
-- Pontos de interesse próximos
-
-### 💬 Testimonials & Galeria
-
-Prova social e engajamento:
-- Depoimentos com fotos de edições anteriores
-- Galeria de fotos do evento anterior
-- Vídeos de momentos-chave
-- Métricas de impacto
-
-### ❓ FAQ Dinâmico
-
-Suporte ao visitante:
-- Perguntas organizadas por categoria
-- Respostas diretas e informativas
-- Busca integrada
-- Link para contato quando necessário
-
-### 🤝 Seção de Parceiros
-
-Credibilidade e patrocínio:
-- Logos de parceiros estratégicos
-- Links diretos para sites dos parceiros
-- Descrição do tipo de parceria
-
-### 🎁 Call-to-Actions Estratégicos
-
-Conversão otimizada:
-- CTA flutuante para compra de ingressos
-- Botões de ação em seções principais
-- Links para redes sociais
-- Convite para newsletter
-
-### ✨ Experiências Anteriores
-
-Conexão emocional:
-- Fotos/vídeos de edições passadas
-- Depoimentos em vídeo
-- Estatísticas de participação
-- Histórias de transformação
-
----
-
-## 📁 Estrutura do Projeto
-
-```bash
-src/
-├── components/                      # Componentes da Landing Page
-│   ├── ui/                         # Componentes base reutilizáveis
-│   │   ├── button.tsx              # Buttons para CTA
-│   │   └── StaggeredMenu.tsx       # Navegação com animações
-│   ├── Hero.tsx                    # Seção hero com banner principal
-│   ├── LineUp.tsx                  # Destaque dos ministros principais
-│   ├── Ministros.tsx               # Galeria completa de ministros
-│   ├── About.tsx                   # Sobre a conferência e impacto
-│   ├── Experience.tsx              # Experiências de edições anteriores
-│   ├── WhatWeLived.tsx             # Momentos importantes vividos
-│   ├── Programacao.tsx             # Timeline da agenda
-│   ├── Testimonials.tsx            # Depoimentos e prova social
-│   ├── Tickets.tsx                 # Sistema de compra de ingressos
-│   ├── FAQ.tsx                     # Perguntas frequentes
-│   ├── Partners.tsx                # Parceiros e patrocinadores
-│   ├── MapComponent.tsx            # Mapa de localização
-│   ├── CallToAction.tsx            # CTAs principais
-│   ├── FloatingCTA.tsx             # CTA flutuante sticky
-│   ├── CustomCursor.tsx            # Efeito visual customizado
-│   ├── Navbar.tsx                  # Navegação e logo
-│   ├── JejumSection.tsx            # Seção especial
-│   └── Footer.tsx                  # Rodapé com links
-├── App.tsx                         # Componente raiz com Suspense
-├── App.css                         # Estilos globais
-├── main.tsx                        # Entry point
-├── index.css                       # Design tokens
-└── config/                         # Configurações do projeto
-    ├── vite.config.ts
-    ├── tsconfig.json
-    └── vercel.json
+```text
+VITE_EMAILJS_SERVICE_ID=
+VITE_EMAILJS_TEMPLATE_FEEDBACK_ID=
+VITE_EMAILJS_TEMPLATE_TESTEMUNHOS_ID=
+VITE_EMAILJS_PUBLIC_KEY=
 ```
 
-### Estratégia de Carregamento
+## 🚀 Primeiros Passos
 
-- **Lazy Loading com Suspense**: Componentes acima da dobra (Navbar, Hero, LineUp) carregam primeiro
-- **Progressive Enhancement**: Fallbacks gracioso para componentes secundários
-- **Code Splitting**: Bundle otimizado para produção
+### 1. Reviva a conferência
 
----
+Na home, explore a **Galeria Memórias CRE'26**: os álbuns do Google Drive de cada dia (abertura, sexta-feira, sábado à tarde e noite de encerramento) e o carrossel de fotos.
 
-## ⚡ Performance & Otimizações
+### 2. Assista às ministrações
 
-Landing page otimizada para máxima velocidade e conversão:
+Na seção **Ministrações**, passe o mouse (ou toque) nos cards para virar e acessar o vídeo de cada mensagem. Lembre-se: os links são **exclusivos dos participantes**: não repasse.
 
-- **Tree Shaking**: Código morto elimina automaticamente
-- **Code Splitting**: Bundle dividido em chunks menores
-- **Image Optimization**: Compressão WebP com fallback
-- **Lazy Loading**: Componentes carregam conforme necessário
-- **CSS Purging**: Apenas classes usadas incluídas
-- **Minificação**: Assets totalmente minificados em produção
+### 3. Continue adorando
 
-## 🎬 Experiência do Usuário
+Na **Playlist O Som do Rio**, acesse os louvores da conferência direto no Spotify ou no YouTube, na sua plataforma favorita.
 
-### Design & Interatividade
-- Entrada fluida de elementos ao scroll (fade-in, slide-up)
-- Transições suaves entre seções
-- Efeitos parallax nos backgrounds
-- Animações de celebração ao converter (confetti)
-- Cursor customizado para reforçar brand
+### 4. Avalie e compartilhe
 
-### Responsividade
-- Mobile-first com breakpoints estratégicos
-- Toque otimizado para dispositivos móveis
-- Imagens que se reescalam inteligentemente
-- Navegação adaptável a diferentes telas
+Deixe sua **avaliação** em `/feedback` e envie seu **testemunho** em `/testemunhos`. E espalhe as águas: publique suas fotos com a hashtag **#CRE2026** e marque os perfis da conferência.
 
-### Acessibilidade
-- Contraste WCAG AA
-- Navegação por teclado completa
-- Atributos ARIA implementados
-- Textos alternativos em imagens
+A partir daí:
 
----
+```text
+Acessar o portal (link pessoal)
+    ↓
+Reviver fotos e ministrações
+    ↓
+Continuar adorando com a playlist
+    ↓
+Avaliar e enviar testemunho
+    ↓
+Compartilhar as próprias fotos (#CRE2026)
+```
 
-### Comandos Disponíveis
+## 🧠 Como Funciona
+
+O portal é uma SPA (single-page application) com três rotas gerenciadas pelo React Router. A home é composta por seções independentes (`Hero`, `GrupoOficial`, `Fotos`, `Ministracoes`, `Avaliacao`, `Playlist`, `Partners` e `Recomendacoes`), e as seções abaixo da dobra são carregadas sob demanda:
+
+```tsx
+import { Suspense, lazy } from 'react';
+
+const Ministracoes = lazy(() => import('./components/Ministracoes'));
+
+<Suspense fallback={<div className="h-32" />}>
+  <Ministracoes />
+</Suspense>
+```
+
+Enquanto o `Header`, o `Hero` e a primeira seção carregam para exibição instantânea, as demais chegam em segundo plano, mantendo o FCP e o LCP rápidos, essencial no mobile, principal canal de acesso dos participantes:
+
+```mermaid
+flowchart LR
+    P[Participante] --> R[React + Vite]
+    R --> H[Header + Hero]
+    H --> G[Grupo Oficial]
+    H --> F[Fotos]
+    H --> M[Ministrações]
+    M --> T[Testemunho]
+    M --> A[Avaliação]
+    H --> PL[Playlist]
+    H --> PA[Parceiros]
+    H --> RE[Recomendações]
+    A --> E[EmailJS]
+    T --> E
+```
+
+<details>
+<summary><strong>🏗️ Detalhes da arquitetura</strong></summary>
+
+### Rotas
+
+| Rota              | Página                       | Carregamento          |
+| ----------------- | ---------------------------- | --------------------- |
+| `/`               | Home (todas as seções)       | Suspense por seção    |
+| `/feedback`       | Formulário de avaliação      | Suspense + spinner    |
+| `/testemunhos`    | Formulário de testemunho     | Suspense + spinner    |
+
+### Componentes
+
+| Componente                        | Responsabilidade                       |
+| --------------------------------- | -------------------------------------- |
+| `src/components/ui`               | Componentes base (button, spinner)     |
+| `src/components/Header.tsx`       | Logo e header com transição no scroll  |
+| `src/components/Hero.tsx`         | Boas-vindas com parallax e fade        |
+| `src/components/GrupoOficial.tsx` | Convite para o grupo do WhatsApp       |
+| `src/components/Fotos.tsx`        | Álbuns do Drive + carrossel de fotos   |
+| `src/components/Ministracoes.tsx` | Cards flip com vídeos exclusivos       |
+| `src/components/Avaliacao.tsx`    | Seção que leva ao formulário de avaliação |
+| `src/components/Playlist.tsx`     | Links para Spotify e YouTube           |
+| `src/components/Partners.tsx`     | Carrossel de parceiros (GSAP via CDN)  |
+| `src/components/Recomendacoes.tsx`| Hashtag #CRE2026 e perfis do Instagram |
+| `src/components/Footer.tsx`       | Aviso de acesso exclusivo e créditos   |
+| `src/pages/feedbacks.tsx`         | Formulário de avaliação (EmailJS)      |
+| `src/pages/testemunhos.tsx`       | Formulário de testemunho (EmailJS)     |
+
+### Fluxo de carregamento de uma seção
+
+```mermaid
+sequenceDiagram
+    participant U as Participante
+    participant R as React Router (Suspense)
+    participant S as Seção (lazy)
+    participant A as Animações GSAP/Framer
+
+    U->>R: Rola até a seção
+    R->>S: Carrega o componente sob demanda
+    S-->>R: Renderiza a seção
+    R->>A: Dispara animações de entrada
+    A-->>U: Experiência visual fluida
+```
+
+### Decisão: Vite + React
+
+Vite entrega builds rápidos com HMR instantâneo, e React mantém o estado dos formulários (validação, carregamento e envio) de forma reativa e previsível.
+
+### Decisão: TypeScript
+
+Tipagem rigorosa é essencial aqui: os dados das ministrações, álbuns de fotos e parceiros são manipulados em várias seções, e os formulários dependem de contratos claros com o EmailJS. A tipagem estática evita bugs silenciosos e melhora a manutenção.
+
+### Decisão: Tailwind CSS v4
+
+Design system utilitário que mantém o CSS do bundle mínimo, com tokens de cor e fontes centralizados em `src/index.css`.
+
+</details>
+
+## 🗂️ Estrutura do Projeto
+
+```text
+site-participantes/
+├── public/
+│   ├── assets/                  # Logos, fotos, ministros e álbuns
+│   │   ├── 2024/                # Fotos da edição de 2024
+│   │   ├── 2025/                # Fotos da edição de 2025
+│   │   ├── Ministros/           # Fotos dos ministros
+│   │   └── Patrocinadores/      # Logos dos parceiros
+│   └── fonts/                   # Aeonik, Blauer Neue, Quentin, etc.
+├── src/
+│   ├── components/
+│   │   ├── ui/                  # Componentes base (button, LoadingSpinner)
+│   │   ├── Header.tsx           # Logo e header responsivo ao scroll
+│   │   ├── Hero.tsx             # Boas-vindas com parallax
+│   │   ├── GrupoOficial.tsx     # Grupo oficial do WhatsApp
+│   │   ├── Fotos.tsx            # Álbuns e carrossel de fotos
+│   │   ├── Ministracoes.tsx     # Vídeos exclusivos (cards flip)
+│   │   ├── Avaliacao.tsx        # CTA para o formulário de avaliação
+│   │   ├── Playlist.tsx         # Playlist oficial (Spotify/YouTube)
+│   │   ├── Partners.tsx         # Carrossel de parceiros
+│   │   ├── Recomendacoes.tsx    # Compartilhamento com #CRE2026
+│   │   ├── Footer.tsx           # Aviso de exclusividade e créditos
+│   │   ├── CustomCursor.tsx     # Cursor customizado
+│   │   └── ElectricBorder.tsx   # Borda animada em canvas
+│   ├── pages/
+│   │   ├── feedbacks.tsx        # Formulário de avaliação
+│   │   ├── feedbacks.css        # Estilos do formulário de avaliação
+│   │   ├── testemunhos.tsx      # Formulário de testemunho
+│   │   └── testemunhos.css      # Estilos do formulário de testemunho
+│   ├── styles/
+│   │   └── global-custom.css    # Estilos globais e animações
+│   ├── lib/
+│   │   └── utils.ts             # Utilitários (cn)
+│   ├── App.tsx                  # Rotas e composição com Suspense
+│   ├── index.css                # Design tokens (Tailwind v4)
+│   └── main.tsx                 # Entry point
+├── .env                         # Credenciais do EmailJS
+├── .gitignore
+├── components.json
+├── eslint.config.js
+├── index.html
+├── package.json
+├── tsconfig.json
+├── tsconfig.app.json
+├── tsconfig.node.json
+├── vercel.json                  # Rotas SPA e headers de segurança
+├── vite.config.ts
+├── LICENSE
+└── README.md
+```
+
+<details>
+<summary><strong>📁 Explicação da estrutura</strong></summary>
+
+| Caminho                       | Objetivo                                  |
+| ----------------------------- | ----------------------------------------- |
+| `src/components/ui`           | Componentes base reutilizáveis            |
+| `src/components`              | Seções da home                            |
+| `src/pages`                   | Páginas de formulário (`/feedback`, `/testemunhos`) |
+| `src/styles`                  | Estilos globais e animações customizadas  |
+| `src/App.tsx`                 | Rotas e composição das seções com Suspense|
+| `src/index.css`               | Tokens de design e estilos Tailwind       |
+| `public/assets`               | Logos, fotos e vídeos do evento           |
+| `public/fonts`                | Fontes do design system                   |
+
+### Arquitetura
+
+O portal adota uma **arquitetura em camadas**, separando a interface da lógica de negócio:
+
+| Camada           | Diretórios                     | Responsabilidade                            |
+| ---------------- | ------------------------------ | ------------------------------------------- |
+| **Apresentação** | `src/components`               | Seções, animações e experiência do usuário  |
+| **Páginas**      | `src/pages`                    | Formulários e fluxos completos              |
+| **Integração**   | `src/pages` + `@emailjs`       | Envio de avaliação e testemunhos            |
+| **Contratos**    | Tipos inline nos componentes   | Tipos e interfaces das seções               |
+
+**Por que essa arquitetura?**
+
+- **Manutenibilidade**: cada seção evolui de forma independente. Alterar a playlist não afeta os formulários e vice-versa.
+- **Performance**: header e hero carregam primeiro; o resto chega sob demanda via `Suspense`.
+- **Separação de responsabilidades**: conteúdo (fotos, ministrações, parceiros) e fluxos de formulário não se acoplam entre si.
+- **Escalabilidade**: novas seções ou rotas podem ser adicionadas sem reestruturar o projeto.
+
+</details>
+
+## ⚙️ Configurações Avançadas
+
+<details>
+<summary><strong>🔧 Variáveis de ambiente</strong></summary>
+
+O projeto usa o **EmailJS** para o envio dos formulários de avaliação e testemunho. Sem as credenciais, o site roda normalmente, mas os formulários exibem um erro ao enviar.
+
+| Variável                               | Obrigatória | Descrição                                  |
+| -------------------------------------- | ----------: | ------------------------------------------ |
+| `VITE_EMAILJS_SERVICE_ID`              |          ✅ | ID do serviço EmailJS                      |
+| `VITE_EMAILJS_TEMPLATE_FEEDBACK_ID`    |          ✅ | Template do formulário de avaliação        |
+| `VITE_EMAILJS_TEMPLATE_TESTEMUNHOS_ID` |          ✅ | Template do formulário de testemunhos      |
+| `VITE_EMAILJS_PUBLIC_KEY`              |          ✅ | Chave pública do EmailJS                   |
+
+</details>
+
+<details>
+<summary><strong>🧪 Lint e build</strong></summary>
+
+Lint:
 
 ```bash
-# Iniciar dev server com HMR (Hot Module Replacement)
-npm run dev
-
-# Validar código com ESLint
 npm run lint
+```
 
-# Build otimizada para produção
+Type-check:
+
+```bash
+npx tsc --noEmit
+```
+
+Build de produção:
+
+```bash
 npm run build
+```
 
-# Visualizar como ficará em produção
+Preview do build:
+
+```bash
 npm run preview
 ```
----
 
-## 📄 Licença
+</details>
 
-Distribuído sob a licença MIT. Veja [LICENSE](LICENSE) para mais informações.
+<details>
+<summary><strong>🚢 Deploy</strong></summary>
 
----
+O deploy é feito na **Vercel**, usando `vercel.json` com:
 
-## ✍️ Desenvolvido Por
+* Rota SPA: todas as rotas (`/`, `/feedback`, `/testemunhos`) caem no `index.html`
+* Headers de segurança: `X-Content-Type-Options`, `X-Frame-Options` (DENY), `X-XSS-Protection` e HSTS
+* Cache imutável para `assets/` e `fonts/` (um ano)
 
-Desenvolvido com **dedicação, oração e muito café** por:
+</details>
 
-**Carlos Neto**  
-*Desenvolvedor Web & Mobile apaixonado por criar experiências digitais que impactam*
+<details>
+<summary><strong>🧑‍🔬 Testes</strong></summary>
 
----
+Unitários:
 
-> "Uma plataforma digital que transforma visitantes em participantes da Conferência Rios do Espírito." 🌊✨
+```bash
+npm test
+```
 
-=======
-# rios-do-espirito-2026
->>>>>>> 7aad7ad18a4ac46c4ebbfd0a94ea56857c7939a4
+E2E:
+
+```bash
+npm run test:e2e
+```
+
+Lint:
+
+```bash
+npm run lint
+```
+
+Type-check:
+
+```bash
+npx tsc --noEmit
+```
+
+> Os scripts de testes unitários e E2E ainda não estão configurados no projeto. Lint e Type-check estão disponíveis atualmente.
+
+</details>
+
+## 🐛 Reportando Problemas
+
+Abra uma [Issue](https://github.com/Carlos2505dev/rios-do-espirito-2026/issues/new) contendo:
+
+```text
+### Descrição
+
+Explique o problema.
+
+### Como reproduzir
+
+1. ...
+2. ...
+3. ...
+
+### Resultado esperado
+
+...
+
+### Ambiente
+
+- OS:
+- Navegador:
+- Versão da página:
+```
+
+## 🔒 Segurança
+
+O portal contém conteúdo exclusivo para participantes, e por isso segue boas práticas de segurança:
+
+* O link de acesso é **pessoal e intransferível**
+* Não publique vulnerabilidades de segurança em Issues públicas: envie um relatório para:
+
+**[carlosbezerrajr2007@gmail.com](mailto:carlosbezerrajr2007@gmail.com)**
+
+## ❓ FAQ
+
+<details>
+<summary><strong>Quem pode acessar o site?</strong></summary>
+
+Apenas participantes da Conferência Rios do Espírito 2026 que receberam o link pessoal de acesso.
+
+</details>
+
+<details>
+<summary><strong>Posso compartilhar os links das ministrações?</strong></summary>
+
+Não. Os vídeos são de uso exclusivo dos participantes, e o site pede que eles não sejam repassados ou publicados externamente.
+
+</details>
+
+<details>
+<summary><strong>O que devo compartilhar, então?</strong></summary>
+
+As suas fotos! Publique seus registros no Instagram com a hashtag **#CRE2026** e marque os perfis da conferência.
+
+</details>
+
+<details>
+<summary><strong>Preciso criar uma conta para enviar avaliação ou testemunho?</strong></summary>
+
+Não. Os dois formulários podem ser enviados anonimamente, sem cadastro.
+
+</details>
+
+<details>
+<summary><strong>Onde encontro as fotos da conferência?</strong></summary>
+
+Na seção **Galeria Memórias CRE'26**, com álbuns do Google Drive separados por dia (abertura, sexta, sábado à tarde e noite de encerramento).
+
+</details>
+
+<details>
+<summary><strong>O que acontece com o meu testemunho?</strong></summary>
+
+Ele é enviado para a equipe da conferência e, se você autorizar, poderá ser usado em conteúdos de divulgação (redes sociais, site e materiais).
+
+</details>
+
+## 💙 Agradecimentos
+
+Obrigado a cada participante que viveu a Conferência Rios do Espírito 2026 e continua edificando a igreja com seus testemunhos. Obrigado aos ministros que serviram a palavra, à equipe que organizou tudo e aos parceiros que apoiaram o evento.
+
+<div align="center">
+
+  <img src="./public/assets/Logo CRE Branco.svg" width="140" alt="Rios do Espírito Logo" style="background:#0c1e3d;border-radius:10px;padding:10px 14px" />
+
+  <p><em>Vidas transformadas à margem de um grande rio.</em></p>
+
+  <p>
+    <a href="https://github.com/Carlos2505dev/rios-do-espirito-2026"><img src="https://img.shields.io/badge/Status-Em%20Produ%C3%A7%C3%A3o-brightgreen?style=flat-square" alt="Produção"></a>
+    <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/Licen%C3%A7a-MIT-yellow?style=flat-square" alt="Licença"></a>
+  </p>
+
+  <p>
+    <a href="https://github.com/Carlos2505dev/rios-do-espirito-2026">GitHub</a>
+  </p>
+
+  <p><a href="#readme">⬆ Voltar ao topo</a></p>
+
+</div>
